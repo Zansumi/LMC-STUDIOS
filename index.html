@@ -40,6 +40,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<meta name="google-adsense-account" content="ca-pub-7069809214987293">
 <script>document.documentElement.classList.add('js')</script>
 <script>
 /* Avatares de devs: prueba varias rutas y, si ninguna existe, muestra la inicial */
@@ -742,6 +743,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
 .cform .consent-note{color:var(--muted);font-size:.85rem;margin-top:-4px}
 .cform .consent-note a{color:var(--text);border-bottom:1px solid var(--red)}
 .aff-note{color:var(--muted);font-size:.85rem;margin-top:14px}
+.ad-strip{max-width:728px;margin:0 auto;padding:36px 4vw 0;text-align:center}
+.ad-strip[hidden]{display:none}
+.ad-strip small{display:block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#6f6f6c;margin-bottom:6px}
+.ad-strip .adsbygoogle{display:block;min-height:0;opacity:.92}
 #lmc-consent-bar{position:fixed;left:0;right:0;bottom:0;z-index:200;background:rgba(20,20,21,.98);border-top:1px solid var(--line);padding:16px 4vw;display:none}
 #lmc-consent-bar.show{display:block}
 #lmc-consent-bar .lmc-cb-in{width:var(--wrap);margin-inline:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px}
@@ -1162,7 +1167,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
 
     <h3>8. Enlaces a sitios externos</h3>
     <p>El Sitio contiene enlaces a páginas y redes de terceros (X, Discord, TikTok, Instagram, YouTube, Twitch, Kick, Minemu Hosting, etc.). No controlamos esos sitios ni respondemos de su contenido, disponibilidad o políticas de privacidad. Su uso se rige por sus propias condiciones. Al pulsar un enlace sales del Sitio y esas plataformas pueden recoger tus datos y usar sus propias cookies.</p>
-    <p>El Sitio también se apoya en servicios de terceros para funcionar: alojamiento (GitHub Pages), envío del formulario de contacto (FormSubmit y un servicio de Cloudflare Workers que avisa al equipo por Discord), fuentes e iconos (Google Fonts y Font Awesome) y contenido incrustado (YouTube, y X y Twitch con tu consentimiento). El detalle de qué datos ven está en el <a href="/privacidad">aviso de privacidad</a> y en la <a href="/cookies">política de cookies</a>.</p>
+    <p><b>Publicidad.</b> Si aceptas las cookies de terceros, el Sitio puede mostrar anuncios de Google AdSense. Los anuncios los elige y sirve Google; no controlamos su contenido ni a los anunciantes, y su aparición no implica que los recomendemos ni que tengamos relación con ellos. LMC Studios ™ recibe una compensación de Google por mostrarlos.</p>
+    <p>El Sitio también se apoya en servicios de terceros para funcionar: alojamiento (GitHub Pages), envío del formulario de contacto (FormSubmit y un servicio de Cloudflare Workers que avisa al equipo por Discord), fuentes e iconos (Google Fonts y Font Awesome), publicidad (Google AdSense, solo con tu consentimiento) y contenido incrustado (YouTube, y X y Twitch con tu consentimiento). El detalle de qué datos ven está en el <a href="/privacidad">aviso de privacidad</a> y en la <a href="/cookies">política de cookies</a>.</p>
 
     <h3>9. LMC Launcher</h3>
     <p>El LMC Launcher está en fase beta y es de uso exclusivo para eventos. Se ofrece «tal cual», puede contener errores y su disponibilidad puede cambiar o suspenderse sin previo aviso. Requiere tener Java instalado. Usas el launcher bajo tu propia responsabilidad y te recomendamos descargarlo solo desde nuestros canales oficiales.</p>
@@ -1210,7 +1216,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
       <li>Gestionar la colaboración o el proyecto, si finalmente lo acordamos.</li>
       <li>Mantener la seguridad del Sitio y prevenir el abuso o el spam en el formulario.</li>
     </ul>
-    <p><b>Finalidades secundarias:</b> no tenemos. No usamos tus datos para publicidad, mercadotecnia ni boletines, y no te enviaremos comunicaciones comerciales sin tu permiso expreso.</p>
+    <p><b>Finalidades secundarias:</b> no tenemos. No usamos los datos que nos das en el formulario para publicidad, mercadotecnia ni boletines (la publicidad que ves en el Sitio la sirve Google AdSense por su cuenta, ver apartados 5 y 10), y no te enviaremos comunicaciones comerciales sin tu permiso expreso.</p>
 
     <h3>4. Fundamento legal</h3>
     <p>Tratamos tus datos con base en tu consentimiento, que otorgas al enviarnos el formulario, y en la necesidad de atender tu solicitud previa a una posible colaboración. El tratamiento técnico del Sitio se apoya en nuestro interés legítimo en mantenerlo seguro y funcionando. Puedes retirar tu consentimiento cuando quieras (apartado 9).</p>
@@ -1225,6 +1231,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
       <li><b>GitHub, Inc.</b> (GitHub Pages): servicio que aloja el Sitio y puede registrar la IP de quien lo visita.</li>
       <li><b>Google Fonts</b> y <b>Font Awesome</b> (cdnjs/Cloudflare): servicios de los que se descargan las fuentes y los iconos, lo que les permite ver tu IP.</li>
       <li><b>Google LLC / YouTube</b> (youtube-nocookie.com): algunos vídeos de YouTube se incrustan en el Sitio y se cargan al abrir la sección, sin pedirte consentimiento previo, por lo que YouTube puede ver tu IP. Usamos el dominio de «privacidad mejorada», que limita las cookies hasta que reproduces el vídeo.</li>
+      <li><b>Google LLC / Google AdSense</b> (pagead2.googlesyndication.com y dominios de Google): muestra anuncios en el Sitio. Solo se carga si pulsas «Aceptar». Google puede usar cookies, tu IP, identificadores del dispositivo y datos de navegación para elegir, medir y limitar anuncios y para prevenir fraude, y puede mostrar anuncios personalizados. Nosotros no recibimos tus datos personales por ello; solo vemos estadísticas agregadas en AdSense. Más información en <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">policies.google.com/technologies/ads</a>.</li>
       <li><b>X Corp.</b> y <b>Twitch Interactive, Inc.</b> (Amazon): su contenido incrustado solo se carga si pulsas «Aceptar».</li>
       <li><b>Minemu Hosting</b>, <b>TikTok</b>, <b>Instagram</b>, <b>Kick</b> y otros sitios enlazados: no reciben datos tuyos por abrir el Sitio, solo si pulsas sus enlaces. Al comprar en Minemu Hosting con nuestro código de descuento, recibimos una comisión (ver el <a href="/aviso-legal">aviso legal</a>); no recibimos tus datos de compra.</li>
     </ul>
@@ -1253,7 +1260,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
     <p><b>Revocación del consentimiento y limitación de uso.</b> Puedes revocar tu consentimiento o pedir que limitemos el uso o la divulgación de tus datos en cualquier momento, por el mismo medio. La revocación no afecta al tratamiento ya realizado, y en algunos casos puede implicar que no podamos seguir atendiendo tu solicitud.</p>
 
     <h3>10. Cookies y tecnologías similares</h3>
-    <p>El Sitio no usa analítica ni publicidad. Usamos una cookie técnica propia para recordar tu elección. El contenido de X y Twitch solo se carga con tu consentimiento; los vídeos de YouTube (youtube-nocookie.com) y las fuentes e iconos se cargan siempre. Encontrarás el detalle y cómo cambiar tu elección en la <a href="/cookies">política de cookies</a>.</p>
+    <p>El Sitio no usa analítica propia. Usamos una cookie técnica propia para recordar tu elección. El contenido de X y Twitch y la <b>publicidad de Google AdSense</b> solo se cargan con tu consentimiento; si rechazas, no se muestran anuncios ni se contacta con los servidores de publicidad. Si aceptas, puedes gestionar los anuncios personalizados en <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>, y retirar tu consentimiento en cualquier momento con «Configurar cookies» (los anuncios dejarán de cargarse al recargar la página). Los vídeos de YouTube y las fuentes e iconos se cargan siempre;  los vídeos de YouTube (youtube-nocookie.com) y las fuentes e iconos se cargan siempre. Encontrarás el detalle y cómo cambiar tu elección en la <a href="/cookies">política de cookies</a>.</p>
 
     <h3>11. Menores de edad</h3>
     <p>El Sitio no está dirigido a menores de 13 años y no recogemos de forma consciente datos de menores. Si eres menor de edad, pide permiso a tu madre, padre o tutor antes de escribirnos. Si crees que hemos recibido datos de un menor, avísanos y los eliminaremos.</p>
@@ -1281,7 +1288,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
     <p>LMC Studios ™ <b>no usa cookies de analítica, de publicidad ni de seguimiento propias</b>. Solo usamos el almacenamiento local del navegador y una cookie técnica para recordar tu decisión sobre las cookies de terceros:</p>
     <ul>
       <li><b>Nombre:</b> <code>lmc-consent</code> (se guarda como cookie y como entrada de almacenamiento local, para que funcione aunque tu navegador bloquee una de las dos)</li>
-      <li><b>Finalidad:</b> recordar si aceptaste o rechazaste el contenido de terceros, para no volver a preguntarte.</li>
+      <li><b>Finalidad:</b> recordar si aceptaste o rechazaste el contenido de terceros y la publicidad, para no volver a preguntarte.</li>
       <li><b>Tipo:</b> técnica, necesaria. Es de primera parte.</li>
       <li><b>Duración:</b> 12 meses en la cookie y, en el almacenamiento local, hasta que borres los datos del sitio en tu navegador o cambies tu elección.</li>
       <li><b>Valores:</b> <code>all</code> (aceptado) o <code>essential</code> (rechazado). No contiene datos personales.</li>
@@ -1292,6 +1299,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
     <ul>
       <li><b>X (Twitter):</b> publicaciones y videos incrustados mediante el script <code>platform.twitter.com</code>. Usamos la opción de no personalización (<code>data-dnt</code>) cuando está disponible.</li>
       <li><b>Twitch:</b> clips incrustados en algunos proyectos. Para que el reproductor funcione se le indica el dominio del Sitio.</li>
+      <li><b>Google AdSense (publicidad):</b> muestra un anuncio breve en algunas secciones (inicio, servicios, proyectos y estudio; nunca en contacto, launcher ni en estas páginas legales). Google puede instalar cookies propias y de terceros (por ejemplo, <code>__gads</code>, <code>__gpi</code>, <code>IDE</code>) y usar identificadores para mostrar anuncios, limitar su frecuencia, medir resultados y prevenir fraude. Si aceptas, pueden ser anuncios personalizados. Los datos y duración los define Google: <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">policies.google.com/technologies/cookies</a>.</li>
     </ul>
     <p>Este contenido <b>no se carga</b> hasta que pulsas «Aceptar». Si rechazas, verás un enlace para abrirlo directamente en la plataforma, y entonces rige su política de privacidad y cookies. La duración y finalidad exactas de esas cookies las define cada proveedor.</p>
     <p><b>YouTube:</b> los videos se incrustan con el dominio <code>youtube-nocookie.com</code>, que limita el uso de cookies hasta que reproduces el video. Sin embargo, estos videos <b>no esperan al banner</b>: al abrir la sección, YouTube (Google) recibe tu IP y datos del navegador.</p>
@@ -1299,11 +1307,12 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
     <h3>4. Recursos de terceros que se cargan siempre</h3>
     <p>Para mostrar el Sitio se descargan las fuentes de Google Fonts y los iconos de Font Awesome (cdnjs/Cloudflare). Estos servicios no instalan cookies de seguimiento propias, pero pueden ver tu dirección IP al servirte los archivos. El Sitio está alojado en GitHub Pages, que también puede registrar tu IP. Más detalle en el <a href="/privacidad">aviso de privacidad</a>.</p>
     <p><b>Al enviar el formulario de contacto</b> tu navegador se conecta con FormSubmit (formsubmit.co) y con un servicio nuestro en Cloudflare Workers (workers.dev), que reciben tus datos y tu IP. Esas conexiones solo ocurren cuando pulsas «Enviar mensaje», y no dependen del banner porque son necesarias para atender tu solicitud. No usamos cookies propias para esto.</p>
-    <p>No usamos analítica (como Google Analytics), píxeles de publicidad, <i>fingerprinting</i> ni cookies de seguimiento propias.</p>
+    <p>No usamos analítica propia (como Google Analytics), píxeles de publicidad propios, <i>fingerprinting</i> ni cookies de seguimiento propias. La única publicidad es la de Google AdSense descrita en el apartado 3, que depende de tu consentimiento.</p>
 
     <h3>5. Cómo cambiar o retirar tu consentimiento</h3>
     <ul>
-      <li>Pulsa «Configurar cookies» en el pie de la página para volver a elegir.</li>
+      <li>Pulsa «Configurar cookies» en el pie de la página para volver a elegir. Si pasas de «Aceptar» a «Rechazar», recarga la página para que dejen de cargarse los anuncios.</li>
+      <li>Gestiona o desactiva los anuncios personalizados de Google en <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a> o en <a href="https://www.youronlinechoices.com" target="_blank" rel="noopener">youronlinechoices.com</a>.</li>
       <li>Borra los datos del sitio desde los ajustes de tu navegador. Así se eliminará tu elección y el banner volverá a aparecer.</li>
       <li>Configura tu navegador para bloquear o eliminar cookies de terceros. Consulta la ayuda de Chrome, Firefox, Safari, Edge o Brave.</li>
       <li>Si usas un navegador o una extensión que bloquea rastreadores (por ejemplo, Brave Shields o un bloqueador de anuncios), puede que el contenido de X, Twitch o YouTube, o el envío del formulario, no funcione. Puedes desactivar el bloqueo para este sitio o escribirnos por correo o Discord.</li>
@@ -1319,6 +1328,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
 <div class="page" data-page="proyecto" tabindex="-1"><article id="proj"></article></div>
 
 </main>
+
+<aside class="ad-strip" id="ad-strip" aria-label="Publicidad" hidden></aside>
 
 <footer>
   <div class="wrap">
@@ -1359,7 +1370,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
 
 <div id="lmc-consent-bar" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
   <div class="lmc-cb-in">
-    <p>Usamos contenido de terceros (X y Twitch) que puede instalar cookies. Solo se carga si lo aceptas. Más información en la <a href="/cookies">política de cookies</a>.</p>
+    <p>Usamos contenido de terceros (X y Twitch) y publicidad de Google AdSense, que pueden instalar cookies. Solo se cargan si lo aceptas. Más información en la <a href="/cookies">política de cookies</a>.</p>
     <div class="lmc-cb-btns">
       <button type="button" class="btn" data-consent="essential">Rechazar</button>
       <button type="button" class="btn" data-consent="all">Aceptar</button>
@@ -1395,6 +1406,33 @@ const CONSENT = {
     document.dispatchEvent(new Event('lmc-consent'));
   }
 };
+/* ---------- PUBLICIDAD (Google AdSense): solo se carga si aceptas ----------
+   slot: pega aquí el ID numérico de tu bloque de anuncios (AdSense > Anuncios > Por bloque de anuncios).
+   Si lo dejas vacío, solo se carga el script y los anuncios automáticos que configures en AdSense. */
+const ADS = {
+  client: 'ca-pub-7069809214987293',
+  slot: '',
+  pages: ['inicio','servicios','estudio','proyectos']   /* nunca en contacto, launcher ni páginas legales */
+};
+let adsPage = 'inicio', adsPushed = false;
+function adsRoute(id){
+  if (id) adsPage = id;
+  const box = document.getElementById('ad-strip'); if (!box) return;
+  const ok = CONSENT.get() === 'all' && ADS.pages.includes(adsPage);
+  if (CONSENT.get() === 'all' && !document.getElementById('adsjs')) {
+    const t = document.createElement('script'); t.id = 'adsjs'; t.async = true; t.crossOrigin = 'anonymous';
+    t.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + ADS.client;
+    t.onerror = () => { t.remove(); box.hidden = true; };
+    document.head.appendChild(t);
+  }
+  if (!ADS.slot) { box.hidden = true; return; }       /* modo automático: sin bloque manual */
+  box.hidden = !ok;
+  if (ok && !adsPushed) {
+    adsPushed = true;
+    box.innerHTML = '<small>Publicidad</small><ins class="adsbygoogle" data-ad-client="' + ADS.client + '" data-ad-slot="' + ADS.slot + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins>';
+    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) { box.hidden = true; }
+  }
+}
 function loadTwitter(cb){
   if (CONSENT.get() !== 'all') return false;
   const sc = document.getElementById('twjs');
@@ -1411,12 +1449,14 @@ function twitchEmbed(clip, title){
   const bar = document.getElementById('lmc-consent-bar');
   const show = () => bar.classList.add('show'), hide = () => bar.classList.remove('show');
   if (!CONSENT.get()) show();
+  adsRoute();
   document.addEventListener('click', e => {
     const b = e.target.closest('[data-consent]');
     if (b) { CONSENT.set(b.dataset.consent); hide(); return; }
     if (e.target.closest('#lmc-consent-config')) show();
   });
   document.addEventListener('lmc-consent', () => {
+    adsRoute();
     if (CONSENT.get() === 'all') {
       loadTwitter(() => window.twttr && twttr.widgets && twttr.widgets.load());
       document.querySelectorAll('.consent-ph[data-clip]').forEach(ph => {
@@ -1884,6 +1924,7 @@ function route(){
     a.dataset.link === navId ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
   document.title = proj ? proj.name + ' | LMC Studios ™' : id === 'inicio' ? base : titles[id] + ' | LMC Studios ™';
   updatePager(id);
+  adsRoute(id);
   const back = id === 'proyectos' && prevId === 'proyecto';
   window.scrollTo({top: back ? savedY : 0, behavior:'instant'});
   if (!firstLoad) document.querySelector('.page.active').focus({preventScroll:true});
