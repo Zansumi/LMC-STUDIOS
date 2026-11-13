@@ -742,13 +742,13 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
 .cform .consent-note{color:var(--muted);font-size:.85rem;margin-top:-4px}
 .cform .consent-note a{color:var(--text);border-bottom:1px solid var(--red)}
 .aff-note{color:var(--muted);font-size:.85rem;margin-top:14px}
-#cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:200;background:rgba(20,20,21,.98);border-top:1px solid var(--line);padding:16px 4vw;display:none}
-#cookie-banner.show{display:block}
-#cookie-banner .cb-in{width:var(--wrap);margin-inline:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px}
-#cookie-banner p{flex:1 1 420px;font-size:.9rem;color:var(--muted);line-height:1.5}
-#cookie-banner p a{color:var(--text);border-bottom:1px solid var(--red)}
-#cookie-banner .cb-btns{display:flex;gap:10px;flex-wrap:wrap}
-#cookie-banner .btn{background:var(--panel);border:1px solid var(--text);color:var(--text);padding:11px 22px;cursor:pointer;font:inherit;font-weight:600}
+#lmc-consent-bar{position:fixed;left:0;right:0;bottom:0;z-index:200;background:rgba(20,20,21,.98);border-top:1px solid var(--line);padding:16px 4vw;display:none}
+#lmc-consent-bar.show{display:block}
+#lmc-consent-bar .lmc-cb-in{width:var(--wrap);margin-inline:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px}
+#lmc-consent-bar p{flex:1 1 420px;font-size:.9rem;color:var(--muted);line-height:1.5}
+#lmc-consent-bar p a{color:var(--text);border-bottom:1px solid var(--red)}
+#lmc-consent-bar .lmc-cb-btns{display:flex;gap:10px;flex-wrap:wrap}
+#lmc-consent-bar .btn{background:var(--panel);border:1px solid var(--text);color:var(--text);padding:11px 22px;cursor:pointer;font:inherit;font-weight:600}
 .consent-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:18px;background:#0e0e0f;color:var(--muted);font-size:.92rem}
 .consent-ph .btn{padding:10px 20px;cursor:pointer;background:var(--panel);color:var(--text);border:1px solid var(--line);font:inherit;font-weight:600}
 </style>
@@ -1121,7 +1121,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
 <div class="page" data-page="aviso-legal" tabindex="-1">
   <section><div class="wrap legal-doc">
     <h2>Aviso legal y condiciones de uso</h2>
-    <p class="upd">Última actualización: 12 de noviembre de 2026</p>
+    <p class="upd">Última actualización: 13 de noviembre de 2026</p>
     <p>Este documento regula el acceso y el uso del sitio web <b>lmcstudios.art</b> (en adelante, el «Sitio»). Al navegar por el Sitio aceptas lo que aquí se indica. Si no estás de acuerdo, te pedimos que no lo utilices.</p>
 
     <h3>1. Identificación del titular</h3>
@@ -1161,13 +1161,14 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
     <p>LMC Studios ™ es partner oficial de <b>Minemu Hosting</b>. El código de descuento <code>lmc</code> ofrece un 10% de descuento en los planes de hosting de Minemu Hosting. Si compras con ese código, LMC Studios ™ recibe una comisión, sin ningún coste adicional para ti. Esta relación comercial no influye en el precio que pagas. Las condiciones de compra, precios, descuentos y garantías del servicio de hosting las establece exclusivamente Minemu Hosting.</p>
 
     <h3>8. Enlaces a sitios externos</h3>
-    <p>El Sitio contiene enlaces a páginas y redes de terceros (X, Discord, TikTok, Instagram, YouTube, Twitch, Kick, Minemu Hosting, etc.). No controlamos esos sitios ni respondemos de su contenido, disponibilidad o políticas de privacidad. Su uso se rige por sus propias condiciones.</p>
+    <p>El Sitio contiene enlaces a páginas y redes de terceros (X, Discord, TikTok, Instagram, YouTube, Twitch, Kick, Minemu Hosting, etc.). No controlamos esos sitios ni respondemos de su contenido, disponibilidad o políticas de privacidad. Su uso se rige por sus propias condiciones. Al pulsar un enlace sales del Sitio y esas plataformas pueden recoger tus datos y usar sus propias cookies.</p>
+    <p>El Sitio también se apoya en servicios de terceros para funcionar: alojamiento (GitHub Pages), envío del formulario de contacto (FormSubmit y un servicio de Cloudflare Workers que avisa al equipo por Discord), fuentes e iconos (Google Fonts y Font Awesome) y contenido incrustado (YouTube, y X y Twitch con tu consentimiento). El detalle de qué datos ven está en el <a href="/privacidad">aviso de privacidad</a> y en la <a href="/cookies">política de cookies</a>.</p>
 
     <h3>9. LMC Launcher</h3>
     <p>El LMC Launcher está en fase beta y es de uso exclusivo para eventos. Se ofrece «tal cual», puede contener errores y su disponibilidad puede cambiar o suspenderse sin previo aviso. Requiere tener Java instalado. Usas el launcher bajo tu propia responsabilidad y te recomendamos descargarlo solo desde nuestros canales oficiales.</p>
 
     <h3>10. Exclusión de responsabilidad</h3>
-    <p>Trabajamos para que la información del Sitio sea correcta y esté actualizada, pero no garantizamos que no contenga errores ni que el acceso sea continuo e ininterrumpido. En la medida permitida por la ley, LMC Studios ™ no será responsable de daños derivados de interrupciones del Sitio, fallos técnicos, o del uso de contenidos y enlaces de terceros. Esto no limita los derechos que la ley reconozca como irrenunciables a las personas consumidoras.</p>
+    <p>Trabajamos para que la información del Sitio sea correcta y esté actualizada, pero no garantizamos que no contenga errores ni que el acceso sea continuo e ininterrumpido. En la medida permitida por la ley, LMC Studios ™ no será responsable de daños derivados de interrupciones del Sitio, fallos técnicos, fallos o bloqueos de los servicios de terceros que usa el Sitio (por ejemplo, que un mensaje del formulario no llegue por un bloqueo del navegador, una extensión antivirus o un fallo de FormSubmit o Cloudflare), o del uso de contenidos y enlaces de terceros. Si no recibes respuesta en un plazo razonable, escríbenos por correo o Discord. Esto no limita los derechos que la ley reconozca como irrenunciables a las personas consumidoras.</p>
 
     <h3>11. Modificaciones</h3>
     <p>Podemos modificar este aviso, el Sitio o sus contenidos en cualquier momento. La versión vigente es la publicada aquí, con la fecha de actualización indicada arriba.</p>
@@ -1184,7 +1185,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
 <div class="page" data-page="privacidad" tabindex="-1">
   <section><div class="wrap legal-doc">
     <h2>Aviso de privacidad</h2>
-    <p class="upd">Última actualización: 12 de noviembre de 2026</p>
+    <p class="upd">Última actualización: 13 de noviembre de 2026</p>
     <p>En LMC Studios ™ nos tomamos en serio tu privacidad. Este aviso explica quién trata tus datos personales, cuáles, para qué, con quién los compartimos y cómo puedes ejercer tus derechos. Se elabora conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) de México y, para las personas ubicadas en la Unión Europea y el Espacio Económico Europeo, conforme al Reglamento General de Protección de Datos (RGPD).</p>
 
     <h3>1. Identidad y datos de contacto del responsable</h3>
@@ -1196,8 +1197,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
 
     <h3>2. Qué datos personales tratamos</h3>
     <p><b>a) Datos que tú nos facilitas.</b> Cuando usas el formulario de contacto: nombre, correo electrónico, asunto y el contenido de tu mensaje (que puede incluir datos sobre tu proyecto, fechas o número de participantes). Si nos escribes por Discord u otras redes, tratamos los datos que esa plataforma nos muestre (nombre de usuario, mensajes).</p>
-    <p><b>b) Datos técnicos que se generan al visitar el Sitio.</b> Dirección IP, tipo de navegador y dispositivo, y fecha y hora de acceso. Estos datos los procesan los proveedores que alojan o sirven el Sitio (ver el apartado 5); nosotros no los usamos para identificarte ni para elaborar perfiles.</p>
-    <p><b>c) Almacenamiento local del navegador.</b> Guardamos únicamente tu elección sobre cookies de terceros (ver la <a href="/cookies">política de cookies</a>).</p>
+    <p><b>Cómo funciona el formulario.</b> Al pulsar «Enviar mensaje», tu nombre, correo, asunto y mensaje se envían a la vez por dos vías: (1) a FormSubmit, que los reenvía a nuestro correo, y (2) a un servicio nuestro en Cloudflare Workers, que los publica en un canal privado de Discord del equipo. Basta con que una de las dos funcione para que recibamos tu mensaje, por lo que tus datos pueden quedar copiados en ambos sitios. El formulario incluye un campo oculto antispam (<i>honeypot</i>) que las personas no ven; los robots que lo rellenan son descartados. El botón «Copiar mensaje» solo copia el texto a tu portapapeles: no envía nada. Los botones de «copiar usuario de Discord» y el del código promocional tampoco envían datos.</p>
+    <p><b>b) Datos técnicos que se generan al visitar el Sitio.</b> Dirección IP, tipo de navegador y dispositivo, y fecha y hora de acceso. Estos datos los procesan los proveedores que alojan o sirven el Sitio, o que reciben tu mensaje (ver el apartado 5): GitHub Pages, Google Fonts, Font Awesome (cdnjs/Cloudflare), YouTube, y FormSubmit y Cloudflare cuando envías el formulario. Todos ellos pueden ver tu IP y datos del navegador por el simple hecho de que tu navegador les pida un archivo. Nosotros no usamos esos datos para identificarte ni para elaborar perfiles, y no tenemos analítica propia.</p>
+    <p><b>c) Almacenamiento local del navegador.</b> Guardamos únicamente tu elección sobre cookies de terceros, en el almacenamiento local del navegador y en una cookie propia técnica llamada <code>lmc-consent</code> de 12 meses (ver la <a href="/cookies">política de cookies</a>).</p>
     <p>No te pedimos ni tratamos datos personales sensibles. Te rogamos que no los incluyas en tus mensajes.</p>
 
     <h3>3. Finalidades del tratamiento</h3>
@@ -1222,15 +1224,18 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
       <li><b>Microsoft</b> (Outlook/Hotmail): servicio de correo donde recibimos los mensajes.</li>
       <li><b>GitHub, Inc.</b> (GitHub Pages): servicio que aloja el Sitio y puede registrar la IP de quien lo visita.</li>
       <li><b>Google Fonts</b> y <b>Font Awesome</b> (cdnjs/Cloudflare): servicios de los que se descargan las fuentes y los iconos, lo que les permite ver tu IP.</li>
+      <li><b>Google LLC / YouTube</b> (youtube-nocookie.com): algunos vídeos de YouTube se incrustan en el Sitio y se cargan al abrir la sección, sin pedirte consentimiento previo, por lo que YouTube puede ver tu IP. Usamos el dominio de «privacidad mejorada», que limita las cookies hasta que reproduces el vídeo.</li>
+      <li><b>X Corp.</b> y <b>Twitch Interactive, Inc.</b> (Amazon): su contenido incrustado solo se carga si pulsas «Aceptar».</li>
+      <li><b>Minemu Hosting</b>, <b>TikTok</b>, <b>Instagram</b>, <b>Kick</b> y otros sitios enlazados: no reciben datos tuyos por abrir el Sitio, solo si pulsas sus enlaces. Al comprar en Minemu Hosting con nuestro código de descuento, recibimos una comisión (ver el <a href="/aviso-legal">aviso legal</a>); no recibimos tus datos de compra.</li>
     </ul>
-    <p>Además, el contenido de X y Twitch solo se carga si lo aceptas en el banner de cookies. Si eliges «Aceptar», esos proveedores tratan tus datos conforme a sus propias políticas.</p>
+    <p>Además, el contenido de X y Twitch solo se carga si lo aceptas en el banner de cookies. Si eliges «Aceptar», esos proveedores tratan tus datos conforme a sus propias políticas. Consulta también las políticas de privacidad de FormSubmit, Cloudflare, Discord, GitHub, Google, X y Twitch.</p>
     <p>Podemos revelar datos si una autoridad competente nos lo exige por ley.</p>
 
     <h3>6. Transferencias internacionales</h3>
     <p>La mayoría de los proveedores anteriores están establecidos o tratan datos en Estados Unidos u otros países. Al usar el formulario aceptas esas transferencias, que son necesarias para prestarte el servicio de contacto. Cuando sea aplicable, esos proveedores aplican garantías propias de transferencia, como las cláusulas contractuales tipo.</p>
 
     <h3>7. Cuánto tiempo conservamos tus datos</h3>
-    <p>Conservamos tus datos durante el tiempo necesario para atender tu consulta y, si hay colaboración, mientras dure y mientras puedan derivarse responsabilidades de ella. Después los eliminamos o los bloqueamos. Puedes pedirnos su supresión antes, escribiendo a <a href="mailto:LMC-Studios-business@hotmail.com">LMC-Studios-business@hotmail.com</a>.</p>
+    <p>Conservamos tus datos durante el tiempo necesario para atender tu consulta y, si hay colaboración, mientras dure y mientras puedan derivarse responsabilidades de ella. Después los eliminamos o los bloqueamos. Los mensajes quedan en nuestra bandeja de correo y en el canal privado de Discord; los registros técnicos (por ejemplo, la IP) que guardan FormSubmit, Cloudflare, GitHub u otros proveedores los gestiona cada uno con sus propios plazos, que no controlamos. Puedes pedirnos su supresión antes, escribiendo a <a href="mailto:LMC-Studios-business@hotmail.com">LMC-Studios-business@hotmail.com</a>.</p>
 
     <h3>8. Seguridad</h3>
     <p>Aplicamos medidas de seguridad administrativas, técnicas y físicas razonables para proteger tus datos frente a pérdida, acceso no autorizado o uso indebido. Ningún sistema es infalible, pero actuaremos con diligencia si detectamos un incidente.</p>
@@ -1248,7 +1253,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
     <p><b>Revocación del consentimiento y limitación de uso.</b> Puedes revocar tu consentimiento o pedir que limitemos el uso o la divulgación de tus datos en cualquier momento, por el mismo medio. La revocación no afecta al tratamiento ya realizado, y en algunos casos puede implicar que no podamos seguir atendiendo tu solicitud.</p>
 
     <h3>10. Cookies y tecnologías similares</h3>
-    <p>El Sitio no usa analítica ni publicidad. El contenido de X y Twitch solo se carga con tu consentimiento. Encontrarás el detalle y cómo cambiar tu elección en la <a href="/cookies">política de cookies</a>.</p>
+    <p>El Sitio no usa analítica ni publicidad. Usamos una cookie técnica propia para recordar tu elección. El contenido de X y Twitch solo se carga con tu consentimiento; los vídeos de YouTube (youtube-nocookie.com) y las fuentes e iconos se cargan siempre. Encontrarás el detalle y cómo cambiar tu elección en la <a href="/cookies">política de cookies</a>.</p>
 
     <h3>11. Menores de edad</h3>
     <p>El Sitio no está dirigido a menores de 13 años y no recogemos de forma consciente datos de menores. Si eres menor de edad, pide permiso a tu madre, padre o tutor antes de escribirnos. Si crees que hemos recibido datos de un menor, avísanos y los eliminaremos.</p>
@@ -1266,38 +1271,42 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
 <div class="page" data-page="cookies" tabindex="-1">
   <section><div class="wrap legal-doc">
     <h2>Política de cookies</h2>
-    <p class="upd">Última actualización: 12 de noviembre de 2026</p>
+    <p class="upd">Última actualización: 13 de noviembre de 2026</p>
     <p>Esta política explica qué cookies y tecnologías similares pueden usarse en <b>lmcstudios.art</b>, para qué sirven y cómo puedes controlarlas.</p>
 
     <h3>1. Qué son las cookies</h3>
     <p>Las cookies son pequeños archivos que un sitio o servicio guarda en tu dispositivo para recordar información o reconocerte. Existen tecnologías parecidas, como el almacenamiento local del navegador, que cumplen una función similar.</p>
 
     <h3>2. Qué usamos nosotros</h3>
-    <p>LMC Studios ™ <b>no usa cookies de analítica, de publicidad ni de seguimiento propias</b>. Solo usamos el almacenamiento local del navegador para recordar tu decisión sobre las cookies de terceros:</p>
+    <p>LMC Studios ™ <b>no usa cookies de analítica, de publicidad ni de seguimiento propias</b>. Solo usamos el almacenamiento local del navegador y una cookie técnica para recordar tu decisión sobre las cookies de terceros:</p>
     <ul>
-      <li><b>Nombre:</b> <code>lmc-consent</code></li>
+      <li><b>Nombre:</b> <code>lmc-consent</code> (se guarda como cookie y como entrada de almacenamiento local, para que funcione aunque tu navegador bloquee una de las dos)</li>
       <li><b>Finalidad:</b> recordar si aceptaste o rechazaste el contenido de terceros, para no volver a preguntarte.</li>
       <li><b>Tipo:</b> técnica, necesaria. Es de primera parte.</li>
-      <li><b>Duración:</b> hasta que borres los datos del sitio en tu navegador o cambies tu elección.</li>
+      <li><b>Duración:</b> 12 meses en la cookie y, en el almacenamiento local, hasta que borres los datos del sitio en tu navegador o cambies tu elección.</li>
+      <li><b>Valores:</b> <code>all</code> (aceptado) o <code>essential</code> (rechazado). No contiene datos personales.</li>
     </ul>
 
     <h3>3. Contenido de terceros (solo si lo aceptas)</h3>
     <p>Algunas secciones muestran contenido incrustado de otras plataformas, que pueden instalar sus propias cookies o identificadores y recibir datos como tu IP:</p>
     <ul>
       <li><b>X (Twitter):</b> publicaciones y videos incrustados mediante el script <code>platform.twitter.com</code>. Usamos la opción de no personalización (<code>data-dnt</code>) cuando está disponible.</li>
-      <li><b>Twitch:</b> clips incrustados en algunos proyectos.</li>
+      <li><b>Twitch:</b> clips incrustados en algunos proyectos. Para que el reproductor funcione se le indica el dominio del Sitio.</li>
     </ul>
     <p>Este contenido <b>no se carga</b> hasta que pulsas «Aceptar». Si rechazas, verás un enlace para abrirlo directamente en la plataforma, y entonces rige su política de privacidad y cookies. La duración y finalidad exactas de esas cookies las define cada proveedor.</p>
-    <p>Los videos de YouTube se incrustan con el dominio <code>youtube-nocookie.com</code>, que limita el uso de cookies hasta que reproduces el video.</p>
+    <p><b>YouTube:</b> los videos se incrustan con el dominio <code>youtube-nocookie.com</code>, que limita el uso de cookies hasta que reproduces el video. Sin embargo, estos videos <b>no esperan al banner</b>: al abrir la sección, YouTube (Google) recibe tu IP y datos del navegador.</p>
 
     <h3>4. Recursos de terceros que se cargan siempre</h3>
     <p>Para mostrar el Sitio se descargan las fuentes de Google Fonts y los iconos de Font Awesome (cdnjs/Cloudflare). Estos servicios no instalan cookies de seguimiento propias, pero pueden ver tu dirección IP al servirte los archivos. El Sitio está alojado en GitHub Pages, que también puede registrar tu IP. Más detalle en el <a href="/privacidad">aviso de privacidad</a>.</p>
+    <p><b>Al enviar el formulario de contacto</b> tu navegador se conecta con FormSubmit (formsubmit.co) y con un servicio nuestro en Cloudflare Workers (workers.dev), que reciben tus datos y tu IP. Esas conexiones solo ocurren cuando pulsas «Enviar mensaje», y no dependen del banner porque son necesarias para atender tu solicitud. No usamos cookies propias para esto.</p>
+    <p>No usamos analítica (como Google Analytics), píxeles de publicidad, <i>fingerprinting</i> ni cookies de seguimiento propias.</p>
 
     <h3>5. Cómo cambiar o retirar tu consentimiento</h3>
     <ul>
       <li>Pulsa «Configurar cookies» en el pie de la página para volver a elegir.</li>
       <li>Borra los datos del sitio desde los ajustes de tu navegador. Así se eliminará tu elección y el banner volverá a aparecer.</li>
-      <li>Configura tu navegador para bloquear o eliminar cookies de terceros. Consulta la ayuda de Chrome, Firefox, Safari o Edge.</li>
+      <li>Configura tu navegador para bloquear o eliminar cookies de terceros. Consulta la ayuda de Chrome, Firefox, Safari, Edge o Brave.</li>
+      <li>Si usas un navegador o una extensión que bloquea rastreadores (por ejemplo, Brave Shields o un bloqueador de anuncios), puede que el contenido de X, Twitch o YouTube, o el envío del formulario, no funcione. Puedes desactivar el bloqueo para este sitio o escribirnos por correo o Discord.</li>
     </ul>
 
     <h3>6. Cambios en esta política</h3>
@@ -1342,16 +1351,16 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
     </div>
     <div class="legal">
       <span>© 2026 LMC Studios ™. Todos los derechos reservados.</span>
-      <span class="lglinks"><a href="/aviso-legal">Aviso legal</a><a href="/privacidad">Privacidad</a><a href="/cookies">Cookies</a><button type="button" class="linklike" id="cookie-config">Configurar cookies</button></span>
+      <span class="lglinks"><a href="/aviso-legal">Aviso legal</a><a href="/privacidad">Privacidad</a><a href="/cookies">Cookies</a><button type="button" class="linklike" id="lmc-consent-config">Configurar cookies</button></span>
       <span><strong>Trade Mark:</strong> marca comercial de uso propio, sin registro oficial. Minecraft es marca de Mojang AB; sin afiliación.</span>
     </div>
   </div>
 </footer>
 
-<div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-  <div class="cb-in">
+<div id="lmc-consent-bar" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+  <div class="lmc-cb-in">
     <p>Usamos contenido de terceros (X y Twitch) que puede instalar cookies. Solo se carga si lo aceptas. Más información en la <a href="/cookies">política de cookies</a>.</p>
-    <div class="cb-btns">
+    <div class="lmc-cb-btns">
       <button type="button" class="btn" data-consent="essential">Rechazar</button>
       <button type="button" class="btn" data-consent="all">Aceptar</button>
     </div>
@@ -1373,14 +1382,24 @@ footer{border-top:1px solid var(--line);padding:56px 0 88px;font-size:.95rem}
 <script>
 /* ---------- CONSENTIMIENTO (X y Twitch solo se cargan si aceptas) ---------- */
 const CONSENT = {
-  get(){ try { return localStorage.getItem('lmc-consent'); } catch(e) { return null; } },
-  set(v){ try { localStorage.setItem('lmc-consent', v); } catch(e) {} document.dispatchEvent(new Event('lmc-consent')); }
+  _mem:null,
+  get(){
+    if (this._mem) return this._mem;
+    try { const v = localStorage.getItem('lmc-consent'); if (v) return v; } catch(e) {}
+    const m = document.cookie.match(/(?:^|; )lmc-consent=([^;]+)/); return m ? m[1] : null;
+  },
+  set(v){
+    this._mem = v;
+    try { localStorage.setItem('lmc-consent', v); } catch(e) {}
+    try { document.cookie = 'lmc-consent=' + v + '; max-age=31536000; path=/; SameSite=Lax'; } catch(e) {}
+    document.dispatchEvent(new Event('lmc-consent'));
+  }
 };
 function loadTwitter(cb){
   if (CONSENT.get() !== 'all') return false;
   const sc = document.getElementById('twjs');
   if (window.twttr && twttr.widgets) cb();
-  else if (!sc) { const t = document.createElement('script'); t.id = 'twjs'; t.async = true; t.src = 'https://platform.twitter.com/widgets.js'; t.onload = cb; document.head.appendChild(t); }
+  else if (!sc) { const t = document.createElement('script'); t.id = 'twjs'; t.async = true; t.src = 'https://platform.twitter.com/widgets.js'; t.onload = cb; t.onerror = () => { t.remove(); }; document.head.appendChild(t); }
   else sc.addEventListener('load', cb, {once:true});
   return true;
 }
@@ -1389,13 +1408,13 @@ function twitchEmbed(clip, title){
   return `<div class="consent-ph" data-clip="${encodeURIComponent(clip)}" data-title="${title}"><p>Este clip de Twitch está bloqueado hasta que aceptes el contenido de terceros.</p><button type="button" class="btn" data-consent="all">Aceptar y ver</button><a href="https://clips.twitch.tv/${encodeURIComponent(clip)}" target="_blank" rel="noopener">Abrir en Twitch</a></div>`;
 }
 (function(){
-  const bar = document.getElementById('cookie-banner');
+  const bar = document.getElementById('lmc-consent-bar');
   const show = () => bar.classList.add('show'), hide = () => bar.classList.remove('show');
   if (!CONSENT.get()) show();
   document.addEventListener('click', e => {
     const b = e.target.closest('[data-consent]');
     if (b) { CONSENT.set(b.dataset.consent); hide(); return; }
-    if (e.target.closest('#cookie-config')) show();
+    if (e.target.closest('#lmc-consent-config')) show();
   });
   document.addEventListener('lmc-consent', () => {
     if (CONSENT.get() === 'all') {
@@ -1623,8 +1642,8 @@ const DISCORD_ANUNCIO = {
   const d = DISCORD_ANUNCIO, root = document.getElementById('news');
   const tweetSlide = `<div class="nv-slide nv-tweet">
     <div class="nv-tw-head"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i><div><h3>Noticias del studio <span class="tag-new" data-until="2026-11-17">Nuevo</span></h3><span>Lo más reciente en @LMCStudi0s</span></div></div>
-    <div class="nv-tw-body" id="tw-embed"><blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none" data-lang="es"><a href="https://twitter.com/LMCStudi0s/status/2120618773166055694">Ver el último tuit del studio</a></blockquote></div>
-    <a class="nv-tw-foot" href="https://x.com/LMCStudi0s/status/2120618773166055694" target="_blank" rel="noopener">Ver en X<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>`;
+    <div class="nv-tw-body" id="tw-embed"><blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none" data-lang="es"><a href="https://twitter.com/LMCStudi0s/status/2121323010938273896">Ver el último tuit del studio</a></blockquote></div>
+    <a class="nv-tw-foot" href="https://x.com/LMCStudi0s/status/2121323010938273896" target="_blank" rel="noopener">Ver en X<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>`;
   const slide = s => s.tweet ? tweetSlide : `<a class="nv-slide${s.img ? '' : ' tease'}" href="${esc(s.href)}"${s.ext ? ' target="_blank" rel="noopener"' : ''}>
     <div class="nv-img"${s.img ? ` style="--bg:url('${encodeURI(s.img)}')"` : ''}>${s.img ? `<img src="${encodeURI(s.img)}" alt="" loading="lazy">` : ''}</div>
     <div class="nv-txt"><span class="nv-badge"><i></i><b>${esc(s.badge)}</b></span><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p><span class="nv-more">Ver detalles</span></div></a>`;
