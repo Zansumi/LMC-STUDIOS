@@ -789,6 +789,84 @@ html.theme-anim *,html.theme-anim *::before,html.theme-anim *::after{transition:
 [data-theme=light] #lmc-consent-bar{box-shadow:0 -10px 30px -18px rgba(60,40,30,.35)}
 [data-theme=light] ::selection{background:var(--red);color:#fff}
 @media(max-width:980px){.nav-end{margin-left:auto}}
+
+/* EQUIPO: jerarquía horizontal (de izquierda a derecha, por rango) */
+.org{--gap:clamp(28px,4vw,56px);display:grid;grid-template-columns:1fr 1fr 2fr;gap:var(--gap);align-items:stretch}
+.tier{position:relative;display:flex;flex-direction:column;min-width:0}
+.tier+.tier::before{content:"";position:absolute;left:calc(-1*var(--gap)/2 - 5px);top:10px;width:0;height:0;border-left:8px solid var(--red);border-top:5px solid transparent;border-bottom:5px solid transparent}
+.tier-label{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px;min-height:22px}
+.tier-label::before,.tier-label::after{content:"";flex:1;height:1px;background:var(--line2)}
+.tier-label h3{font:700 .76rem var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--red-soft);white-space:nowrap}
+.tier-label .tag-new{margin-left:8px}
+.tier-grid{flex:1;display:grid;gap:20px;grid-template-columns:minmax(0,1fr);grid-auto-rows:1fr}
+.tier-3 .tier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.org .member{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:26px 20px}
+.org .member h3{font-size:1.35rem}
+.org .member p{font-size:.9rem;line-height:1.55}
+.org .member>.handle,.org .member>a.link{margin-top:auto}
+.tier-1 .member,.tier-2 .member{justify-content:center}
+.tier-1 .member>a.link,.tier-2 .member>a.link{margin-top:6px}
+.org .tier-1 .member{border-color:var(--red)}
+.org .tier-1 .member img{width:120px;height:120px}
+.rank{display:inline-block;padding:3px 12px;border:1px solid var(--red);border-radius:999px;color:var(--red-soft);font:700 .72rem var(--body);letter-spacing:.14em;text-transform:uppercase}
+.rank.top{background:var(--red);color:#fff}
+.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.tg{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border:1px solid var(--line);border-radius:999px;background:var(--sunk);color:var(--text2);font:500 .8rem/1.35 var(--body)}
+.tg i{font-size:.68rem;color:var(--red-soft)}
+a.tg{transition:border-color .25s,color .25s}
+a.tg:hover{border-color:var(--red);color:var(--red-soft)}
+@media(max-width:1150px){
+  .org{grid-template-columns:1fr 1fr}
+  .tier-3{grid-column:1/-1}
+  .tier-3 .tier-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .tier-3::before{display:none}
+}
+@media(max-width:1000px){.tier-3 .tier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){
+  .org{grid-template-columns:minmax(0,1fr)}
+  .tier+.tier::before{display:none}
+  .tier-3 .tier-grid{grid-template-columns:minmax(0,1fr)}
+}
+
+/* INICIO: eventos integrados en "Sobre el estudio" */
+.studio-top{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:center}
+.studio-copy .studio-head{justify-items:start;text-align:left}
+.studio-copy h2{margin:0;max-width:14ch;font-size:clamp(2.2rem,4.4vw,3.6rem)}
+.studio-copy .studio-intro{grid-template-columns:1fr;max-width:none;margin:26px 0 0;gap:14px}
+.studio-copy .studio-intro p{padding:0}
+.studio-copy .studio-intro p+p{border-left:0;border-top:0;padding-top:0}
+.evt-mini{border:1px solid var(--line);background:var(--panel);overflow:hidden;min-width:0}
+.evt-cap{padding:10px 16px;font:700 .7rem var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--red-soft);border-bottom:1px solid var(--line)}
+.evt-tabs{display:flex;overflow-x:auto;border-bottom:1px solid var(--line);scrollbar-width:none}
+.evt-tabs::-webkit-scrollbar{display:none}
+.evt-tab{position:relative;flex:1 0 auto;padding:10px 14px;border:0;border-right:1px solid var(--line);background:none;color:var(--muted);font:600 .8rem var(--body);white-space:nowrap;cursor:pointer;transition:color .25s,background .25s}
+.evt-tab:last-child{border-right:0}
+.evt-tab:hover{color:var(--text)}
+.evt-tab[aria-selected=true]{color:var(--text);background:var(--bg)}
+.evt-tab::after{content:"";position:absolute;left:0;bottom:-1px;width:100%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left}
+.evt-tab[aria-selected=true]::after{transform:scaleX(1)}
+.evt-mini:not(.manual) .evt-tab[aria-selected=true]::after{animation:evtbar 7s linear forwards}
+.evt-mini:hover .evt-tab[aria-selected=true]::after,.evt-mini:focus-within .evt-tab[aria-selected=true]::after{animation-play-state:paused}
+@keyframes evtbar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.evt-stage>*{animation:evtIn .45s var(--ease) both}
+@keyframes evtIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.evt-media{position:relative;isolation:isolate;overflow:hidden;background:var(--sunk);aspect-ratio:16/8}
+.evt-media::before{content:"";position:absolute;inset:-24px;z-index:-1;background:var(--bg) center/cover no-repeat;filter:blur(18px) brightness(.55) saturate(1.1)}
+.evt-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.evt-media.secret img{filter:blur(12px) brightness(.6)}
+.evt-info{display:grid;gap:6px;justify-items:start;padding:16px 18px 18px}
+.evt-info .cat{font-size:.78rem;color:var(--red-soft);font-weight:600}
+.evt-info h3{font-size:1.3rem;font-weight:700}
+.evt-info p{color:var(--muted);font-size:.9rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.evt-go{font-weight:600;font-size:.88rem;border-bottom:1px solid var(--red);padding-bottom:1px;transition:color .2s}
+.evt-go:hover{color:var(--red-soft)}
+.evt-go i{margin-left:6px;font-size:.72rem}
+.studio-top+.facts{margin-top:clamp(40px,5vw,64px)}
+@media(max-width:900px){.studio-top{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.evt-stage>*{animation:none}}
+.foot-mail{display:flex;align-items:center;gap:8px;width:fit-content;max-width:100%;margin-top:12px;color:var(--muted);font-size:.9rem;overflow-wrap:anywhere;transition:color .2s}
+.foot-mail i{color:var(--red-soft);font-size:.85rem}
+.foot-mail:hover{color:var(--text)}
 </style>
 </head>
 <body>
@@ -805,7 +883,7 @@ html.theme-anim *,html.theme-anim *::before,html.theme-anim *::after{transition:
       <li><a href="/servicios" data-link="servicios">Servicios</a></li>
       <li><a href="/proyectos" data-link="proyectos">Proyectos</a></li>
       <li><a href="/launcher" data-link="launcher">Launcher</a></li>
-      <li><a href="/estudio" data-link="estudio">Nosotros</a></li>
+      <li><a href="/estudio" data-link="estudio">Equipo</a></li>
       <li><a href="/partners" data-link="partners">Partners</a></li>
       <li><a href="/contacto" data-link="contacto">Contacto</a></li>
     </ul>
@@ -848,13 +926,22 @@ html.theme-anim *,html.theme-anim *::before,html.theme-anim *::after{transition:
 
   <section class="studio">
     <div class="wrap">
-      <div class="studio-head">
-        <span class="eyebrow">Sobre el estudio</span>
-        <h2>Ideas que se convierten en experiencias.</h2>
-      </div>
-      <div class="studio-intro">
-        <p>LMC Studios ™ reúne creatividad, desarrollo técnico y producción para llevar un concepto hasta un proyecto funcional dentro de Minecraft.</p>
-        <p>También nos encargamos del branding y la promoción de cada proyecto, para que llegue a su comunidad con una imagen coherente.</p>
+      <div class="studio-top">
+        <div class="studio-copy">
+        <div class="studio-head">
+          <span class="eyebrow">Sobre el estudio</span>
+          <h2>Ideas que se convierten en experiencias.</h2>
+        </div>
+        <div class="studio-intro">
+          <p>LMC Studios ™ reúne creatividad, desarrollo técnico y producción para llevar un concepto hasta un proyecto funcional dentro de Minecraft.</p>
+          <p>También nos encargamos del branding y la promoción de cada proyecto, para que llegue a su comunidad con una imagen coherente.</p>
+        </div>
+        </div>
+        <aside class="evt-mini" id="evt-box" aria-label="Eventos destacados">
+          <div class="evt-cap">Nuestros eventos</div>
+          <div class="evt-tabs" id="evt-tabs" role="tablist" aria-label="Eventos de LMC Studios"></div>
+          <div class="evt-stage" id="evt-stage" role="tabpanel" aria-live="polite"></div>
+        </aside>
       </div>
       <div class="facts">
         <div><b>6 nov 2025</b><span>Fundación como Team LMC Studios</span></div>
@@ -862,18 +949,29 @@ html.theme-anim *,html.theme-anim *::before,html.theme-anim *::after{transition:
         <div><b><a href="https://www.minemu.net/" target="_blank" rel="noopener">Minemu Hosting</a></b><span>Partner oficial desde junio de 2026</span></div>
         <div><b>Jul 2026</b><span>Independencia como estudio</span></div>
       </div>
-      <div class="hist">
-        <div class="hist-head">
-          <h3>Nuestra historia</h3>
-          <a class="jump" href="/estudio">Ver historia completa <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </section>
+
+  <section class="story" id="historia">
+    <div class="wrap">
+      <div class="story-side">
+        <h2>Nuestra historia</h2>
+        <figure class="renew">
+          <video controls preload="metadata" playsinline src="assets/LMC%20Studios%20se%20renueva.mp4"></video>
+          <figcaption><span class="rtag">NUEVO LOGO · 7 JUN 2026</span><b>LMC Studios se renueva</b>Video con el que anunciamos el cambio de logo, lanzado junto a nuestra independencia de Team LMC el 7 de junio de 2026.</figcaption>
+        </figure>
+      </div>
+      <div class="txt">
+        <p>Fundado el <mark>6 de noviembre de 2025</mark> bajo el nombre de Team LMC Studios, nacimos con la misión de desarrollar <b>eventos y experiencias dentro de Minecraft</b>. Nuestro primer proyecto, <a class="ref" href="/proyecto/oshanzumi">OshanZumi</a>, marcó el inicio de este camino, seguido por <a class="ref" href="/proyecto/hardcore-of-elite">Hardcore of Elite</a>, el <mark>20 de enero de 2026</mark>, que impulsó nuestro crecimiento y consolidó nuestra visión como estudio.</p>
+        <p>En <mark>junio de 2026</mark>, alcanzamos un hito importante al convertirnos en <b>partners oficiales de <a href="https://www.minemu.net/" target="_blank" rel="noopener">Minemu Hosting</a></b>, cuyo apoyo con hosting y promoción nos ha permitido desarrollar eventos con mayor facilidad y ampliar nuestro alcance.</p>
+        <p>En <mark>julio de 2026</mark>, nos <b>independizamos oficialmente de <a href="https://zansumilmc.github.io/TeamLMC2/" target="_blank" rel="noopener">Team LMC</a></b> para enfocarnos plenamente en el desarrollo de proyectos de Minecraft. Más adelante, nuestra colaboración con <a href="https://x.com/yDaantiX" target="_blank" rel="noopener">yDaantix</a>, participante de <a href="https://zansumilmc.github.io/TeamLMC2/" target="_blank" rel="noopener">Team LMC</a>, dio vida a <a class="ref" href="/proyecto/zoulcraft">ZOULCRAFT</a>, un evento finalizado el <mark>9 de octubre de 2026</mark> que nos brindó una gran exposición y representó un nuevo logro para el estudio.</p>
+        <p>Hoy seguimos creciendo gracias a <b>nuestra comunidad, nuestros colaboradores</b> y el respaldo de <a href="https://www.minemu.net/" target="_blank" rel="noopener">Minemu Hosting</a>. La expectativa por nuestros próximos eventos nos impulsa a continuar creando experiencias cada vez más ambiciosas.</p>
+        <p>Agradecemos a todas las personas y colaboradores que han formado parte de este recorrido. LMC Studios ™ sigue escribiendo su historia y estamos <b>abiertos a nuevos talentos, colaboraciones y proyectos</b> que quieran crecer junto a nosotros.</p>
+        <p class="tag">LMC STUDIOS ™ — CREAMOS EXPERIENCIAS, CONSTRUIMOS HISTORIAS Y EL SIGUIENTE CAPÍTULO LO ESCRIBIMOS JUNTOS.</p>
+        <div class="actions">
+          <a class="btn primary" href="/contacto">Escríbenos</a>
+          <a class="btn ghost" href="https://discord.gg/jCFjYJ5Eye" target="_blank" rel="noopener"><i class="fab fa-discord"></i>Unirse a la comunidad</a>
         </div>
-        <ol class="hist-tl">
-          <li><time>6 nov 2025</time><strong>Nace Team LMC Studios</strong> con la misión de crear eventos y experiencias en Minecraft. Su primer proyecto: <a class="ref" href="/proyecto/oshanzumi">OshanZumi</a>.</li>
-          <li><time>20 ene 2026</time><a class="ref" href="/proyecto/hardcore-of-elite">Hardcore of Elite</a>, creado en una semana, impulsa el crecimiento y consolida la visión del estudio.</li>
-          <li><time>Jun 2026</time>Somos partners oficiales de <a class="ref" href="https://www.minemu.net/" target="_blank" rel="noopener">Minemu Hosting</a>: su hosting y promoción amplían nuestro alcance.</li>
-          <li><time>Jul 2026</time>Nos independizamos de <a class="ref" href="https://zansumilmc.github.io/TeamLMC2/" target="_blank" rel="noopener">Team LMC</a> e inauguramos el estudio con <a class="ref" href="/proyecto/destruye-el-nexus">Destruye el Nexus</a>.</li>
-          <li><time>9 oct 2026</time><a class="ref" href="/proyecto/zoulcraft">ZOULCRAFT</a> finaliza con 60 participantes y nos da una gran exposición.</li>
-        </ol>
       </div>
     </div>
   </section>
@@ -980,102 +1078,106 @@ html.theme-anim *,html.theme-anim *::before,html.theme-anim *::after{transition:
   <section class="alt">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Nosotros</h2>
-        <p>Las personas que dirigen LMC Studios ™ y la división que lo acompaña. <a class="jump" href="/estudio" data-jump="historia">Mira abajo para conocer más sobre nosotros y nuestra historia <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a></p>
+        <h2>Equipo</h2>
+        <p>Equipo de desarrollo y administración, detrás de cada evento.</p>
       </div>
-      <div class="team-grid">
-        <article class="member">
-          <img src="assets/avatars/zansumi.png" alt="Avatar de Zansumi" loading="lazy">
-          <h3>Zansumi</h3>
-          <div class="role">Founder y manager general</div>
-          <p>Dirección creativa, desarrollo de proyectos, administración de servidores y eventos de Minecraft.</p>
-          <a class="link" href="https://www.youtube.com/@zansumii" target="_blank" rel="noopener"><i class="fab fa-youtube"></i>YouTube</a>
-        </article>
-        <article class="member">
-          <img src="assets/avatars/andreus.png" alt="Avatar de TheandreusPR" loading="lazy">
-          <h3>TheandreusPR</h3>
-          <div class="role">Co-founder y manager general</div>
-          <p>Cofundador de LMC Studios ™.</p>
-          <a class="link" href="https://www.kick.com/theandreuspr" target="_blank" rel="noopener"><i class="fa-solid fa-play"></i>Kick</a>
-        </article>
-        <article class="member">
-          <img src="assets/avatars/iwan.png" alt="Avatar de IwanMC" loading="lazy">
-          <h3>IwanMC</h3>
-          <div class="role">Co-owner y gestión informativa</div>
-          <p>Gestión de la información, comunicación y soporte para la comunidad de LMC Studios ™.</p>
-          <a class="link" href="https://www.twitch.tv/iwanhx" target="_blank" rel="noopener"><i class="fab fa-twitch"></i>Twitch</a>
-        </article>
-      </div>
-      <div class="devs" id="devs">
-        <div class="devs-head">
-          <h3>Equipo de Desarrollo — LMC Studios ™ <span class="tag-new" data-until="2026-12-31">Nuevo</span></h3>
-          <p>Devs practicantes que trabajan dentro del estudio desarrollando, diseñando y dando soporte a nuestros proyectos de Minecraft, con compromiso y ganas de crecer junto a LMC Studios ™.</p>
+      <div class="org">
+
+        <div class="tier tier-1">
+          <div class="tier-label"><h3>Dirección</h3></div>
+          <div class="tier-grid">
+            <article class="member">
+              <img src="assets/avatars/zansumi.png" alt="Avatar de Zansumi" loading="lazy">
+              <h3>Zansumi</h3>
+              <span class="rank top">Founder · Dev</span>
+              <div class="tags">
+                <span class="tg">Mods y plugins para eventos</span>
+                <span class="tg">Integración de mods en servidores</span>
+                <span class="tg">Admin de las webs del studio</span>
+                <span class="tg">Dirección interna del studio</span>
+              </div>
+              <a class="link pill" href="https://www.youtube.com/@zansumii" target="_blank" rel="noopener"><i class="fab fa-youtube"></i>YouTube</a>
+            </article>
+          </div>
         </div>
-        <div class="team-grid">
-          <article class="member">
-            <img src="assets/avatars/yoki.png" data-try="assets/yoki.png,yoki.png" alt="Avatar de Yokiu" loading="lazy" onerror="avFallback(this,'Y')">
-            <h3>Yokiu</h3>
-            <div class="role">Desarrollo de software y modificaciones</div>
-            <p>Responsable del desarrollo de mods personalizados para Minecraft y de la creación de aplicaciones desarrolladas desde cero. Se enfoca en transformar ideas y necesidades específicas en soluciones funcionales mediante desarrollo de software propio.</p>
-            <button class="handle" type="button" data-copy="sweetyokiu" aria-label="Copiar usuario de Discord de Yokiu"><i class="fab fa-discord"></i>sweetyokiu <small>· copiar</small></button>
-          </article>
-          <article class="member">
-            <img src="assets/avatars/narel.png" data-try="assets/narel.png,narel.png" alt="Avatar de Narell" loading="lazy" onerror="avFallback(this,'N')">
-            <h3>Narell</h3>
-            <div class="role">Diseño e interfaces personalizadas</div>
-            <p>Encargada del diseño visual y la personalización de interfaces. Su trabajo incluye la creación de títulos y elementos gráficos para eventos, así como interfaces personalizadas para Minecraft, cuidando la identidad visual y la presentación de cada proyecto.</p>
-            <a class="link pill" href="https://www.twitch.tv/narellyt" target="_blank" rel="noopener"><i class="fab fa-twitch"></i>Twitch</a>
-          </article>
-          <article class="member">
-            <img src="assets/avatars/tony.png" data-try="assets/tony.png,tony.png" alt="Avatar de Tony" loading="lazy" onerror="avFallback(this,'T')">
-            <h3>Tony</h3>
-            <div class="role">Soporte técnico y gestión de proyectos</div>
-            <p>Colabora en la ejecución y gestión de proyectos, incluyendo la administración e integración de mods, la optimización de sistemas y la configuración de comandos. Su función se centra en mejorar el funcionamiento, la estabilidad y la organización técnica de los proyectos.</p>
-            <button class="handle" type="button" data-copy="t0nyjeje" aria-label="Copiar usuario de Discord de Tony"><i class="fab fa-discord"></i>t0nyjeje <small>· copiar</small></button>
-          </article>
-          <article class="member">
-            <img src="assets/avatars/dantix.png" data-try="assets/dantix.png,dantix.png" alt="Avatar de Dantix" loading="lazy" onerror="avFallback(this,'D')">
-            <h3>Dantix</h3>
-            <div class="role">Configuración de modpacks y mecánicas de juego</div>
-            <p>Domina la configuración de modpacks, ajustando cada mod, recurso y balance para que todo funcione fluido y sin conflictos, y conoce a fondo las mecánicas del juego, lo que le permite diseñar experiencias más sólidas, equilibradas y divertidas para cada proyecto.</p>
-            <a class="link pill" href="https://x.com/yDaantiX" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i>yDaantiX</a>
-          </article>
+
+        <div class="tier tier-2">
+          <div class="tier-label"><h3>Administración</h3></div>
+          <div class="tier-grid">
+            <article class="member">
+              <img src="assets/avatars/iwan.png" alt="Avatar de IwanMC" loading="lazy">
+              <h3>IwanMC</h3>
+              <span class="rank">Co-owner</span>
+              <div class="tags">
+                <span class="tg">Ayuda en la comunicación</span>
+                <span class="tg">Gestión de ayuda en la administración</span>
+              </div>
+              <a class="link pill" href="https://www.twitch.tv/iwanhx" target="_blank" rel="noopener"><i class="fab fa-twitch"></i>Twitch</a>
+            </article>
+            <article class="member">
+              <img src="assets/avatars/andreus.png" alt="Avatar de TheandreusPR" loading="lazy">
+              <h3>TheandreusPR</h3>
+              <span class="rank">Admin</span>
+              <div class="tags">
+                <span class="tg">Ayuda al staff en temas internos</span>
+                <span class="tg">Ideas creativas para próximos eventos</span>
+              </div>
+            </article>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <section class="story" id="historia">
-    <div class="wrap">
-      <div class="story-side">
-        <h2>Nuestra historia</h2>
-        <figure class="renew">
-          <video controls preload="metadata" playsinline src="assets/LMC%20Studios%20se%20renueva.mp4"></video>
-          <figcaption><span class="rtag">NUEVO LOGO · 7 JUN 2026</span><b>LMC Studios se renueva</b>Video con el que anunciamos el cambio de logo, lanzado junto a nuestra independencia de Team LMC el 7 de junio de 2026.</figcaption>
-        </figure>
-      </div>
-      <div class="txt">
-        <p>Fundado el <mark>6 de noviembre de 2025</mark> bajo el nombre de Team LMC Studios, nacimos con la misión de desarrollar <b>eventos y experiencias dentro de Minecraft</b>. Nuestro primer proyecto, <a class="ref" href="/proyecto/oshanzumi">OshanZumi</a>, marcó el inicio de este camino, seguido por <a class="ref" href="/proyecto/hardcore-of-elite">Hardcore of Elite</a>, el <mark>20 de enero de 2026</mark>, que impulsó nuestro crecimiento y consolidó nuestra visión como estudio.</p>
-        <p>En <mark>junio de 2026</mark>, alcanzamos un hito importante al convertirnos en <b>partners oficiales de <a href="https://www.minemu.net/" target="_blank" rel="noopener">Minemu Hosting</a></b>, cuyo apoyo con hosting y promoción nos ha permitido desarrollar eventos con mayor facilidad y ampliar nuestro alcance.</p>
-        <p>En <mark>julio de 2026</mark>, nos <b>independizamos oficialmente de <a href="https://zansumilmc.github.io/TeamLMC2/" target="_blank" rel="noopener">Team LMC</a></b> para enfocarnos plenamente en el desarrollo de proyectos de Minecraft. Más adelante, nuestra colaboración con <a href="https://x.com/yDaantiX" target="_blank" rel="noopener">yDaantix</a>, participante de <a href="https://zansumilmc.github.io/TeamLMC2/" target="_blank" rel="noopener">Team LMC</a>, dio vida a <a class="ref" href="/proyecto/zoulcraft">ZOULCRAFT</a>, un evento finalizado el <mark>9 de octubre de 2026</mark> que nos brindó una gran exposición y representó un nuevo logro para el estudio.</p>
-        <p>Hoy seguimos creciendo gracias a <b>nuestra comunidad, nuestros colaboradores</b> y el respaldo de <a href="https://www.minemu.net/" target="_blank" rel="noopener">Minemu Hosting</a>. La expectativa por nuestros próximos eventos nos impulsa a continuar creando experiencias cada vez más ambiciosas.</p>
-        <p>Agradecemos a todas las personas y colaboradores que han formado parte de este recorrido. LMC Studios ™ sigue escribiendo su historia y estamos <b>abiertos a nuevos talentos, colaboraciones y proyectos</b> que quieran crecer junto a nosotros.</p>
-        <p class="tag">LMC STUDIOS ™ — CREAMOS EXPERIENCIAS, CONSTRUIMOS HISTORIAS Y EL SIGUIENTE CAPÍTULO LO ESCRIBIMOS JUNTOS.</p>
-        <div class="actions">
-          <a class="btn primary" href="/contacto">Escríbenos</a>
-          <a class="btn ghost" href="https://discord.gg/jCFjYJ5Eye" target="_blank" rel="noopener"><i class="fab fa-discord"></i>Unirse a la comunidad</a>
+
+        <div class="tier tier-3" id="devs">
+          <div class="tier-label"><h3>Equipo de desarrollo <span class="tag-new" data-until="2026-12-31">Nuevo</span></h3></div>
+          <div class="tier-grid">
+            <article class="member">
+              <img src="assets/avatars/yoki.png" data-try="assets/yoki.png,yoki.png" alt="Avatar de Yokiu" loading="lazy" onerror="avFallback(this,'Y')">
+              <h3>Yokiu</h3>
+              <span class="rank">Dev de mods</span>
+              <div class="tags">
+                <span class="tg">Mods personalizados</span>
+                <a class="tg" href="/launcher">Launcher oficial <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+              <p>Desarrolla mods personalizados y aplicaciones desde cero, convirtiendo ideas y necesidades concretas en software propio.</p>
+              <button class="handle" type="button" data-copy="sweetyokiu" aria-label="Copiar usuario de Discord de Yokiu"><i class="fab fa-discord"></i>sweetyokiu <small>· copiar</small></button>
+            </article>
+            <article class="member">
+              <img src="assets/avatars/tony.png" data-try="assets/tony.png,tony.png" alt="Avatar de Tony" loading="lazy" onerror="avFallback(this,'T')">
+              <h3>Tony</h3>
+              <span class="rank">Dev</span>
+              <div class="tags">
+                <span class="tg">Integración de mods en servidores</span>
+                <span class="tg">Optimización</span>
+                <span class="tg">Comandos</span>
+              </div>
+              <p>Administra e integra mods, optimiza sistemas y configura comandos para mejorar la estabilidad y la organización técnica de los proyectos.</p>
+              <button class="handle" type="button" data-copy="t0nyjeje" aria-label="Copiar usuario de Discord de Tony"><i class="fab fa-discord"></i>t0nyjeje <small>· copiar</small></button>
+            </article>
+            <article class="member">
+              <img src="assets/avatars/dantix.png" data-try="assets/dantix.png,dantix.png" alt="Avatar de Dantix" loading="lazy" onerror="avFallback(this,'D')">
+              <h3>Dantix</h3>
+              <span class="rank">Modpacks</span>
+              <div class="tags">
+                <span class="tg">Creador de modpacks</span>
+                <span class="tg">Gestión y optimización</span>
+              </div>
+              <p>Ajusta cada mod, recurso y balance para que todo funcione fluido y sin conflictos, y diseña experiencias equilibradas gracias a su dominio de las mecánicas del juego.</p>
+              <a class="link pill" href="https://x.com/yDaantiX" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i>yDaantiX</a>
+            </article>
+            <article class="member">
+              <img src="assets/avatars/narel.png" data-try="assets/narel.png,narel.png" alt="Avatar de Narell" loading="lazy" onerror="avFallback(this,'N')">
+              <h3>Narell</h3>
+              <span class="rank">Diseño</span>
+              <div class="tags">
+                <span class="tg">Logos</span>
+                <span class="tg">Menús en FancyMenu</span>
+                <span class="tg">Visual de eventos</span>
+              </div>
+              <p>Crea títulos y elementos gráficos para eventos e interfaces personalizadas para Minecraft, cuidando la identidad visual de cada proyecto.</p>
+              <a class="link pill" href="https://www.twitch.tv/narellyt" target="_blank" rel="noopener"><i class="fab fa-twitch"></i>Twitch</a>
+            </article>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <section class="affiliate">
-    <div class="wrap">
-      <div class="division">
-        <img src="assets/avatars/sas.png" alt="Logotipo de Team LMC" loading="lazy">
-        <div>
-          <h3>Team LMC ™</h3>
-          <p>Proyecto independiente de creación de contenido y desarrollo de talento digital, operado bajo la administración y supervisión de LMC Studios ™. Mantiene su propia identidad y enfoque, formando parte de los proyectos independientes que se desarrollan bajo el nombre de LMC.</p>
-        </div>
-        <a class="btn ghost" href="https://zansumilmc.github.io/TeamLMC2/" target="_blank" rel="noopener">Visitar web</a>
+
       </div>
     </div>
   </section>
@@ -1373,6 +1475,7 @@ html.theme-anim *,html.theme-anim *::before,html.theme-anim *::after{transition:
     <div class="foot">
       <div>
         <a class="brand" href="/"><img src="assets/avatars/lmcstudios.png" alt="">LMC Studios ™</a>
+        <a class="foot-mail" href="mailto:LMC-Studios-business@hotmail.com"><i class="fa-regular fa-envelope" aria-hidden="true"></i>LMC-Studios-business@hotmail.com</a>
         <p>Estudio creativo de eventos, servidores y experiencias de Minecraft.</p>
       </div>
       <div>
@@ -1381,7 +1484,7 @@ html.theme-anim *,html.theme-anim *::before,html.theme-anim *::after{transition:
           <li><a href="/servicios">Servicios</a></li>
           <li><a href="/proyectos">Proyectos</a></li>
           <li><a href="/launcher">Launcher</a></li>
-          <li><a href="/estudio">Nosotros</a></li>
+          <li><a href="/estudio">Equipo</a></li>
           <li><a href="/partners">Partners</a></li>
           <li><a href="/contacto">Contacto</a></li>
         </ul>
@@ -1695,6 +1798,47 @@ projects.forEach(p => {
   grid.appendChild(el);
 });
 
+/* EVENTOS DESTACADOS (inicio): pestañas discretas con rotación automática */
+(function(){
+  const box = document.getElementById('evt-box'), tabs = document.getElementById('evt-tabs'), stage = document.getElementById('evt-stage');
+  if (!box) return;
+  const list = projects.filter(p => p.cat === 'Eventos' && !p.news && !p.censored);   /* solo los que no salen en Novedades */
+  if (!list.length) { box.hidden = true; return; }
+  tabs.innerHTML = list.map((p, i) =>
+    `<button type="button" class="evt-tab" role="tab" id="evt-t${i}" data-i="${i}" aria-selected="false" aria-controls="evt-stage" tabindex="-1">${p.censored ? 'Próximamente' : esc(p.name)}</button>`).join('');
+  const tabEls = [...tabs.children];
+  function panel(p){
+    const img = encodeURI(A + p.img);
+    return `<div class="evt-media${p.censored ? ' secret' : ''}" style="--bg:url('${img}')"><img src="${img}" alt="${p.censored ? 'Próximo evento (secreto)' : 'Imagen de ' + esc(p.name)}"></div>
+      <div class="evt-info">
+        <span class="cat">${p.censored ? 'Muy pronto' : esc(p.cat) + ' · ' + esc(p.dateLabel)}</span>
+        <h3>${p.censored ? 'Un nuevo evento se acerca' : esc(p.name)}</h3>
+        <p>${esc(p.desc)}</p>
+        <a class="evt-go" href="/proyecto/${p.slug}">${p.censored ? 'Ver adelanto' : 'Ver evento'}<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>`;
+  }
+  let cur = -1;
+  function show(i){
+    cur = i;
+    tabEls.forEach((t, k) => { t.setAttribute('aria-selected', k === i); t.tabIndex = k === i ? 0 : -1; });
+    stage.setAttribute('aria-labelledby', 'evt-t' + i);
+    stage.innerHTML = panel(list[i]);
+    const t = tabEls[i], r = tabs.getBoundingClientRect(), q = t.getBoundingClientRect();
+    tabs.scrollLeft += (q.left - r.left) - (r.width - q.width) / 2;
+  }
+  const stop = () => box.classList.add('manual');
+  tabs.addEventListener('click', e => { const b = e.target.closest('.evt-tab'); if (b) { stop(); show(+b.dataset.i); } });
+  tabs.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault(); stop();
+    const n = (cur + (e.key === 'ArrowRight' ? 1 : -1) + list.length) % list.length;
+    show(n); tabEls[n].focus();
+  });
+  tabs.addEventListener('animationend', e => { if (e.animationName === 'evtbar') show((cur + 1) % list.length); });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) stop();
+  show(0);
+})();
+
 /* ORDEN CRONOLÓGICO (más recientes primero / más antiguos primero) */
 const sortBtn = document.getElementById('sort');
 let newestFirst = true;
@@ -1774,7 +1918,7 @@ document.querySelectorAll('[data-count]').forEach(el => el.textContent = project
 /* ---------- DETALLE DE PROYECTO ---------- */
 const PEOPLE = {
   'zansumi':{src:A+'zansumi.png', url:'https://www.youtube.com/@zansumii'},
-  'theandreuspr':{src:A+'andreus.png', url:'https://www.kick.com/theandreuspr'},
+  'theandreuspr':{src:A+'andreus.png'},
   'iwanmc':{src:A+'iwan.png', url:'https://www.twitch.tv/iwanhx'},
   'lmc studios ™':{src:A+'lmcstudios.png', logo:1, url:'/'},
   'team lmc ™':{src:A+'sas.png', logo:1, url:'https://zansumilmc.github.io/TeamLMC2/'},
@@ -1818,7 +1962,7 @@ function lmcCard(m){
   const who = [['zansumi','zansumi.png','Zansumi'],['theandreuspr','andreus.png','TheandreusPR'],['iwanmc','iwan.png','IwanMC'],
     ...(m.also || []).map(k => [k, PEOPLE[k].src, PEOPLE[k].label])];
   const wsrc = w => /^assets\//.test(w[1]) ? w[1] : A + w[1];
-  return `<div class="crew-m lmc"><img class="av logo" src="${A}lmcstudios.png" alt=""><div><h3>${esc(m.name)}</h3>${m.role ? `<p>${esc(m.role)}</p>` : ''}</div><div class="who-list">${who.map(w => `<a class="who" href="${esc(PEOPLE[w[0]].url)}" target="_blank" rel="noopener"><img src="${wsrc(w)}" alt="" loading="lazy"><b>${w[2]}</b><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>`).join('')}</div></div>`;
+  return `<div class="crew-m lmc"><img class="av logo" src="${A}lmcstudios.png" alt=""><div><h3>${esc(m.name)}</h3>${m.role ? `<p>${esc(m.role)}</p>` : ''}</div><div class="who-list">${who.map(w => { const u = PEOPLE[w[0]].url, t = u ? 'a' : 'div'; return `<${t} class="who"${u ? ` href="${esc(u)}" target="_blank" rel="noopener"` : ''}><img src="${wsrc(w)}" alt="" loading="lazy"><b>${w[2]}</b>${u ? '<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>' : ''}</${t}>`; }).join('')}</div></div>`;
 }
 function renderProject(p){
   const d = p.details || {};
@@ -1923,7 +2067,7 @@ chips.forEach(chip => chip.addEventListener('click', () => {
 
 /* NAVEGACIÓN POR PÁGINAS (rutas limpias: /servicios, /proyectos, ...) */
 const pages = [...document.querySelectorAll('.page')];
-const titles = {inicio:'', servicios:'Servicios', proyectos:'Proyectos', launcher:'Launcher', estudio:'Nosotros', partners:'Partners', contacto:'Contacto', 'aviso-legal':'Aviso legal', privacidad:'Aviso de privacidad', cookies:'Política de cookies', proyecto:''};
+const titles = {inicio:'', servicios:'Servicios', proyectos:'Proyectos', launcher:'Launcher', estudio:'Equipo', partners:'Partners', contacto:'Contacto', 'aviso-legal':'Aviso legal', privacidad:'Aviso de privacidad', cookies:'Política de cookies', proyecto:''};
 const ORDER = ['inicio','servicios','proyectos','launcher','estudio','partners','contacto'];
 const base = document.title;
 let firstLoad = true, prevId = '', savedY = 0;
