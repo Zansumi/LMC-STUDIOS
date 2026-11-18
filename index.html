@@ -2182,7 +2182,7 @@ chips.forEach(chip => chip.addEventListener('click', () => {
 const pages = [...document.querySelectorAll('.page')];
 const titles = {inicio:'', servicios:'Servicios', proyectos:'Proyectos', launcher:'Launcher', estudio:'Equipo', partners:'Partners', contacto:'Contacto', 'aviso-legal':'Aviso legal', privacidad:'Aviso de privacidad', cookies:'Política de cookies', proyecto:''};
 const ORDER = ['inicio','servicios','proyectos','launcher','estudio','partners','contacto'];
-const base = document.title;
+const base = 'LMC Studios ™ | Estudio creativo de eventos y experiencias de Minecraft';
 let firstLoad = true, prevId = '', savedY = 0;
 const pgPrev = document.getElementById('pg-prev'), pgNext = document.getElementById('pg-next');
 
@@ -2235,7 +2235,7 @@ document.addEventListener('click', e => {
   const href = a.getAttribute('href');
   if (href.startsWith('//')) return;
   e.preventDefault();
-  if (href === location.pathname) { window.scrollTo({top:0, behavior:'smooth'}); return; }
+  if (href === location.pathname.replace(/(.)\/+$/, '$1')) { window.scrollTo({top:0, behavior:'smooth'}); return; }
   history.pushState(null, '', href);
   route();
 });
