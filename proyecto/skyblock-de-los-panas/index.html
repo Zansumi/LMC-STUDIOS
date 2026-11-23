@@ -918,6 +918,29 @@ a.tg:hover{border-color:var(--red);color:var(--red-soft)}
 @media(max-width:900px){.org .tier-2 .tier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.org .tier-2 .member:last-child:nth-child(odd){grid-column:1/-1}}
 @media(max-width:700px){.org .tier-2 .tier-grid{grid-template-columns:minmax(0,1fr)}.org .tier-2 .member:last-child:nth-child(odd){grid-column:auto}}
 
+/* EQUIPO v4: desarrollo más grande y legible; usuarios de Discord siempre en una sola línea */
+.org .tier-3 .tier-grid{max-width:1240px;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.org .tier-3 .tier-grid>.member,.org .tier-3 .tier-grid>.member:nth-child(n+4){grid-column:auto}
+.org .tier-3 .member{padding:28px 22px 24px;gap:12px}
+.org .tier-3 .member img,.org .tier-3 .member .av-ini{width:88px;height:88px;font-size:2rem}
+.org .tier-3 .member h3{font-size:1.3rem;overflow-wrap:anywhere}
+.org .tier-3 .member .rank{font-size:.7rem;padding:3px 12px}
+.org .tier-3 .member p{font-size:.92rem;line-height:1.55}
+.org .tier-3 .tg{font-size:.8rem;padding:4px 11px;gap:6px}
+.org .tier-3 .tg i{font-size:.78rem}
+.org .tier-3 .handle,.org .tier-3 a.link.pill{padding:9px 16px;font-size:.9rem;white-space:nowrap;max-width:100%}
+.org .tier-3 .handle small{font-size:.78rem;white-space:nowrap}
+.org .tier-3 .member>a.link.pill+.handle{margin-top:0}
+@media(max-width:1000px){
+  .org .tier-3 .tier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .org .tier-3 .tier-grid>.member:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 9px)}
+}
+@media(max-width:640px){
+  .org .tier-3 .tier-grid{grid-template-columns:minmax(0,1fr)}
+  .org .tier-3 .tier-grid>.member:last-child:nth-child(odd){grid-column:auto;width:auto}
+  .org .tier-3 .handle,.org .tier-3 a.link.pill{font-size:.86rem;padding:9px 14px}
+}
+
 /* INICIO: eventos integrados en "Sobre el estudio" */
 .studio-top{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:center}
 .studio-copy .studio-head{justify-items:start;text-align:left}
