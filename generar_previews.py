@@ -17,23 +17,24 @@ IMG_DEFAULT = "assets/avatars/banerlmcst.png"
 SUFFIX = " | LMC Studios ™"
 HOME_TITLE = "LMC Studios ™ | Estudio creativo de eventos y experiencias de Minecraft"
 
-# ---- Edita aquí título / descripción / imagen de cada sección ----
+# ---- Edita aquí título / descripción de cada sección ----
+# La imagen de cada sección (assets/og/<sección>.png, 1200x630) se genera con: python3 tools/make_og.py
 SECTIONS = {
-    "servicios": ("Servicios", "De la idea al evento: diseño, desarrollo, producción y promoción de eventos y servidores de Minecraft.", IMG_DEFAULT),
-    "proyectos": ("Proyectos", "Eventos, servidores y experiencias de Minecraft en las que ha participado LMC Studios ™, solo o junto a otros equipos.", IMG_DEFAULT),
-    "launcher": ("LMC Launcher (beta)", "Nuestro launcher está en beta, de uso exclusivo para eventos de LMC Studios ™.", IMG_DEFAULT),
-    "estudio": ("Equipo", "Conoce al equipo de desarrollo y administración detrás de cada evento de LMC Studios ™.", IMG_DEFAULT),
-    "partners": ("Partners", "Los partners y patrocinadores que apoyan a LMC Studios ™.", IMG_DEFAULT),
-    "contacto": ("Contacto", "¿Tienes una idea para tu evento, servidor o experiencia de Minecraft? Escríbenos y la hacemos realidad.", IMG_DEFAULT),
-    "aviso-legal": ("Aviso legal", "Aviso legal de LMC Studios ™.", IMG_DEFAULT),
-    "privacidad": ("Aviso de privacidad", "Cómo LMC Studios ™ trata tus datos personales.", IMG_DEFAULT),
-    "cookies": ("Política de cookies", "Información sobre las cookies que usa lmcstudios.art.", IMG_DEFAULT),
+    "servicios": ("Servicios", "De la idea al evento: diseño, desarrollo, producción y promoción de eventos y servidores de Minecraft.", None),
+    "proyectos": ("Proyectos", "Eventos, servidores y experiencias de Minecraft en las que ha participado LMC Studios ™, solo o junto a otros equipos.", None),
+    "launcher": ("LMC Launcher (beta)", "Nuestro launcher está en beta, de uso exclusivo para eventos de LMC Studios ™.", None),
+    "estudio": ("Equipo", "Conoce al equipo de desarrollo y administración detrás de cada evento de LMC Studios ™.", None),
+    "partners": ("Partners", "Los partners y patrocinadores que apoyan a LMC Studios ™.", None),
+    "contacto": ("Contacto", "¿Tienes una idea para tu evento, servidor o experiencia de Minecraft? Escríbenos y la hacemos realidad.", None),
+    "aviso-legal": ("Aviso legal", "Aviso legal de LMC Studios ™.", None),
+    "privacidad": ("Aviso de privacidad", "Cómo LMC Studios ™ trata tus datos personales.", None),
+    "cookies": ("Política de cookies", "Información sobre las cookies que usa lmcstudios.art.", None),
 }
 
 def esc(s): return html.escape(s, quote=True)
 def img_url(rel): return f"{SITE}/{quote(rel)}"
 
-def set_meta(doc, *, title, desc, url, image, alt):
+def set_meta(doc, *, title, desc, url, image, alt, dims=None):
     def sub(pattern, repl):
         nonlocal doc
         doc, n = re.subn(pattern, lambda m: repl, doc, count=1)
@@ -50,6 +51,10 @@ def set_meta(doc, *, title, desc, url, image, alt):
     sub(r'<meta name="twitter:description" content="[^"]*">', f'<meta name="twitter:description" content="{esc(desc)}">')
     sub(r'<meta name="twitter:image" content="[^"]*">', f'<meta name="twitter:image" content="{image}">')
     sub(r'<meta name="twitter:image:alt" content="[^"]*">', f'<meta name="twitter:image:alt" content="{esc(alt)}">')
+    # medidas de la imagen: solo se declaran cuando se conocen (las de las secciones, 1200x630)
+    doc = re.sub(r'<meta property="og:image:(?:width|height)" content="[^"]*">\n?', '', doc)
+    if dims:
+        doc = re.sub(r'(<meta property="og:image" content="[^"]*">)', lambda m: m.group(1) + f'\n<meta property="og:image:width" content="{dims[0]}">\n<meta property="og:image:height" content="{dims[1]}">', doc, count=1)
     return doc
 
 def patch_shared(doc):
@@ -85,7 +90,7 @@ def main():
 
     for slug, (name, desc, image) in SECTIONS.items():
         write(slug, set_meta(src, title=name + SUFFIX, desc=desc, url=f"{SITE}/{slug}",
-                             image=img_url(image), alt=f"{name} · LMC Studios ™"))
+                             image=img_url(image or f"assets/og/{slug}.png"), alt=f"{name} · LMC Studios ™", dims=(1200, 630)))
 
     for p in parse_projects(src):
         if p["censored"] or not p["img"] or p["img"].startswith(".."):
