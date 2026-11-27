@@ -1899,7 +1899,7 @@ const projects = [
        'Uno de los mayores eventos de LMC Studios como estudio independiente, desarrollado completamente por su equipo, con libertad creativa y una recreación inspirada en Hardcore Z 2 del creador de contenido Farfadox.'],
      points:["Plugins propios: libro de revivición y sistema de muertes personalizado.", "Desarrollo completado en 10 horas gracias a una planificación ajustada.", "De 140 formularios recibidos se seleccionaron 60 participantes; el servidor superó los 80 jugadores.", "Banners, flyers y anuncios en directo de cada tanda de participantes, a cargo de LMC Studios.", "Finalizó el 9 de octubre: hola_qease201 resistió hasta el final, sin equipo, y ganó 5 USD. Hosting oficial de Minemu Hosting."],
      videos:[{src:'assets/zoulcraftprsentacion.mp4', caption:'Presentación del evento'}],
-     gallery:[{src:'assets/zoulcraft.png', caption:'Jugadores en el evento'},{src:'assets/estas invitado2.png', caption:'Invitación personalizada'},{src:'assets/zoulcraft2renders.png', caption:'Logo oficial del evento'},{src:'assets/zoulcraftrebir.png', caption:'Sistema de revivición'}],
+     gallery:[{src:'assets/zoulcraft.png', caption:'Jugadores en el evento'},{src:'assets/estas invitado2.png', caption:'Invitación personalizada'},{src:'assets/zoulcraft2renders.png', caption:'Logo oficial del evento'}],
      team:[{"name": "LMC Studios ™", "role": "Equipo de desarrollo · plugins y promocionales"}, {"name": "Farfadox", "role": "Inspiración (Hardcore Z 2)"}, {"name": "hola_qease201", "role": "Ganador del evento"}, {"name": "Minemu Hosting", "role": "Hosting oficial"}]}},
 
 ];
@@ -2440,22 +2440,24 @@ paint();if(s==='en')set(true);
 })();
 </script>
 <!-- xmas:start -->
+<div id="xm-tree" aria-hidden="true"><svg viewBox="0 0 120 170" aria-hidden="true"><defs><radialGradient id="xmts"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#ffe27a" stop-opacity="0"/></radialGradient></defs><circle cx="60" cy="14" r="14" fill="url(#xmts)"/><polygon points="60,4 64,14 75,14 66,20 70,31 60,24 50,31 54,20 45,14 56,14" fill="#ffd54a"/><polygon points="60,22 92,78 28,78" fill="#1f8a4c"/><polygon points="60,48 100,112 20,112" fill="#25a05a"/><polygon points="60,80 108,148 12,148" fill="#2dbb6a"/><rect x="53" y="148" width="14" height="20" rx="2" fill="#7a4a22"/><circle cx="52" cy="62" r="3.2" fill="#ff4040"/><circle cx="68" cy="70" r="3" fill="#ffd54a"/><circle cx="44" cy="96" r="3.4" fill="#4aa8ff"/><circle cx="72" cy="98" r="3.2" fill="#ff4040"/><circle cx="60" cy="86" r="2.8" fill="#ff7ad9"/><circle cx="36" cy="132" r="3.6" fill="#ffd54a"/><circle cx="62" cy="126" r="3.4" fill="#ff4040"/><circle cx="86" cy="134" r="3.6" fill="#4aa8ff"/><circle cx="50" cy="142" r="2.8" fill="#ff7ad9"/><circle cx="78" cy="118" r="2.8" fill="#ffd54a"/><path d="M34 72Q60 82 84 70M26 106Q60 120 94 104M20 140Q60 156 100 138" fill="none" stroke="#ffe9a8" stroke-width="1.4" stroke-dasharray="2 5" stroke-linecap="round"/></svg></div>
 <style id="xm-css">
-#xm-lights{position:fixed;top:0;left:0;width:100%;height:58px;pointer-events:none;z-index:9990;overflow:hidden}
+#xm-lights{position:fixed;left:0;top:0;width:100%;height:26px;pointer-events:none;z-index:45;overflow:hidden}
 #xm-lights svg{display:block}
-.xm-wire{fill:none;stroke:#5a5a5a;stroke-width:1.6}
-.xm-cap{fill:#6b6b6b}
-.xm-b{animation:xmTw 2.6s ease-in-out infinite;color:#fff}
-.xm-b.c0{fill:#ff4040;color:#ff4040}.xm-b.c1{fill:#ffc93d;color:#ffc93d}.xm-b.c2{fill:#3ddc84;color:#3ddc84}.xm-b.c3{fill:#4aa8ff;color:#4aa8ff}.xm-b.c4{fill:#ff7ad9;color:#ff7ad9}
-.xm-b.d1{animation-delay:-.5s}.xm-b.d2{animation-delay:-1s}.xm-b.d3{animation-delay:-1.5s}.xm-b.d4{animation-delay:-2s}
-@keyframes xmTw{0%,100%{opacity:1;filter:drop-shadow(0 0 6px currentColor)}50%{opacity:.4;filter:drop-shadow(0 0 1px currentColor)}}
-#xm-snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9989}
-#xm-toggle{position:fixed;left:14px;bottom:14px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(16,22,40,.78);color:#fff;font-size:18px;line-height:1;cursor:pointer;z-index:9991;display:grid;place-items:center;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 2px 10px rgba(0,0,0,.35);transition:transform .2s,opacity .2s}
+.xm-wire{fill:none;stroke:#6a6a6a;stroke-width:1.2;opacity:.8}
+.xm-g{animation:xmTw 2.4s ease-in-out infinite}
+.xm-g.g1{animation-delay:-.5s}.xm-g.g2{animation-delay:-1s}.xm-g.g3{animation-delay:-1.5s}.xm-g.g4{animation-delay:-2s}
+@keyframes xmTw{0%,100%{opacity:1}50%{opacity:.35}}
+#xm-tree{position:fixed;right:8px;bottom:0;width:150px;pointer-events:none;z-index:41;opacity:.55;filter:blur(1.6px)}
+#xm-tree svg{display:block;width:100%;height:auto}
+@media (max-width:600px){#xm-tree{width:84px;right:4px;opacity:.5}}
+#xm-snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:44}
+#xm-toggle{position:fixed;left:14px;bottom:14px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(16,22,40,.82);color:#fff;font-size:18px;line-height:1;cursor:pointer;z-index:9991;display:grid;place-items:center;box-shadow:0 2px 10px rgba(0,0,0,.35);transition:transform .2s,opacity .2s}
 #xm-toggle:hover{transform:scale(1.08)}
 #xm-toggle:focus-visible{outline:2px solid #ffc93d;outline-offset:3px}
 #xm-toggle[aria-pressed="false"]{opacity:.6}
-@media (prefers-reduced-motion:reduce){.xm-b{animation:none}}
-@media print{#xm-lights,#xm-snow,#xm-toggle{display:none!important}}
+@media (prefers-reduced-motion:reduce){.xm-g{animation:none}}
+@media print{#xm-tree,#xm-lights,#xm-snow,#xm-toggle{display:none!important}}
 </style>
 <script id="xm-js">
 (function(){
@@ -2468,48 +2470,60 @@ lights.id='xm-lights';lights.setAttribute('aria-hidden','true');
 cv.id='xm-snow';cv.setAttribute('aria-hidden','true');
 btn.id='xm-toggle';btn.type='button';btn.textContent='\u2744';btn.setAttribute('aria-label','Activar o desactivar la decoraci\u00f3n navide\u00f1a');
 b.appendChild(lights);b.appendChild(cv);b.appendChild(btn);
+var COL=['#ff4040','#ffc93d','#3ddc84','#4aa8ff','#ff7ad9'];
+function place(){
+  var n=document.querySelector('#nav,header.nav,body>header,header'),top=0;
+  if(n){var cs=getComputedStyle(n);
+    if(cs.position==='fixed'||cs.position==='sticky'){lights.style.position='fixed';top=n.offsetHeight}
+    else{lights.style.position='absolute';top=n.getBoundingClientRect().bottom+(window.pageYOffset||0)}}
+  lights.style.top=top+'px';
+}
 function buildLights(){
-  var w=innerWidth,seg=w<600?96:132,n=Math.ceil(w/seg)+1,sag=16,h=58,i,k,t,x,y,p='',bl='';
-  var C=[0,1,2,3,4],ci=0;
+  var w=innerWidth,m=w<600,seg=m?112:150,n=Math.ceil(w/seg)+1,sag=8,i,k,t,x,y,p='',g=['','','','',''],ci=0,defs='';
+  for(i=0;i<5;i++)defs+='<radialGradient id="xmg'+i+'"><stop offset="0" stop-color="'+COL[i]+'" stop-opacity=".85"/><stop offset="1" stop-color="'+COL[i]+'" stop-opacity="0"/></radialGradient>';
   for(i=0;i<n;i++){
     var x0=i*seg,x1=x0+seg;
-    p+='<path class="xm-wire" d="M'+x0+' 4Q'+(x0+seg/2)+' '+(4+2*sag)+' '+x1+' 4"/>';
+    p+='M'+x0+' 2Q'+(x0+seg/2)+' '+(2+2*sag)+' '+x1+' 2';
     for(k=0;k<3;k++){
-      t=[.2,.5,.8][k];x=x0+seg*t;y=4+4*sag*t*(1-t);
-      bl+='<rect class="xm-cap" x="'+(x-2.5)+'" y="'+(y-1)+'" width="5" height="6" rx="1"/>'+
-          '<ellipse class="xm-b c'+C[ci%5]+' d'+(ci%5)+'" cx="'+x+'" cy="'+(y+11)+'" rx="4.6" ry="6.6"/>';
+      t=[.2,.5,.8][k];x=x0+seg*t;y=2+4*sag*t*(1-t);
+      var c=ci%5;
+      g[c]+='<circle cx="'+x.toFixed(1)+'" cy="'+(y+4).toFixed(1)+'" r="7" fill="url(#xmg'+c+')"/><circle cx="'+x.toFixed(1)+'" cy="'+(y+4).toFixed(1)+'" r="2.6" fill="'+COL[c]+'"/>';
       ci++;
     }
   }
-  lights.innerHTML='<svg width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'">'+p+bl+'</svg>';
+  var out='<svg width="'+w+'" height="26" viewBox="0 0 '+w+' 26"><defs>'+defs+'</defs><path class="xm-wire" d="'+p+'"/>';
+  for(i=0;i<5;i++)out+='<g class="xm-g g'+i+'">'+g[i]+'</g>';
+  lights.innerHTML=out+'</svg>';
 }
-var ctx=cv.getContext('2d'),W=0,H=0,fl=[],raf=0;
-function mk(r){return{x:Math.random()*W,y:r?Math.random()*H:-10,r:Math.random()*2.6+.8,v:Math.random()*.9+.35,s:Math.random()*6.28,a:Math.random()*.45+.5}}
+var ctx=cv.getContext('2d'),W=0,H=0,fl=[],raf=0,last=0,mob=false;
+function mk(r){return{x:Math.random()*W,y:r?Math.random()*H:-10,r:Math.random()*2.2+.8,v:Math.random()*.8+.35,s:Math.random()*6.28,a:Math.random()*.4+.5}}
 function size(){
-  var d=Math.min(window.devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
+  var d=Math.min(window.devicePixelRatio||1,1.5);W=innerWidth;H=innerHeight;mob=W<600;
   cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
-  var N=Math.round(Math.min(110,W/11));while(fl.length<N)fl.push(mk(true));fl.length=N;
+  var N=mob?32:Math.round(Math.min(85,W/16));while(fl.length<N)fl.push(mk(true));fl.length=N;
 }
-function tick(){
-  ctx.clearRect(0,0,W,H);ctx.fillStyle='#fff';ctx.shadowColor='rgba(110,150,220,.7)';ctx.shadowBlur=4;
+function tick(ts){
+  raf=requestAnimationFrame(tick);
+  if(mob&&ts-last<33)return;last=ts;
+  ctx.clearRect(0,0,W,H);ctx.fillStyle='#fff';
   for(var i=0;i<fl.length;i++){
     var f=fl[i];f.s+=.012;f.x+=Math.sin(f.s)*.5+.15;f.y+=f.v;
     if(f.y>H+10||f.x>W+10){fl[i]=f=mk(false);f.x=Math.random()*W}
     ctx.globalAlpha=f.a;ctx.beginPath();ctx.arc(f.x,f.y,f.r,0,6.2832);ctx.fill();
   }
-  raf=requestAnimationFrame(tick);
 }
 function start(){if(!raf&&!reduce&&!off&&!document.hidden){size();raf=requestAnimationFrame(tick)}}
 function stop(){if(raf){cancelAnimationFrame(raf);raf=0}ctx.clearRect(0,0,W,H)}
 function apply(){
-  lights.style.display=off?'none':'';cv.style.display=off?'none':'';
+  lights.style.display=off?'none':'';var tr=document.getElementById('xm-tree');if(tr)tr.style.display=off?'none':'';cv.style.display=off?'none':'';
   btn.setAttribute('aria-pressed',off?'false':'true');
   off?stop():start();
 }
 btn.addEventListener('click',function(){off=!off;try{localStorage.setItem(KEY,off?'1':'0')}catch(e){}apply()});
 document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
-var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){buildLights();if(raf)size()},150)});
-buildLights();apply();
+var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){buildLights();place();if(raf)size()},150)});
+addEventListener('load',place);
+buildLights();place();apply();
 })();
 </script>
 <!-- xmas:end -->
